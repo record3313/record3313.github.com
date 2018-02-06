@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="robots" content="all" />
+    <meta name="keywords" content="더넷, 앱채팅, 메신저" />
+    <meta name="description" content="업무공유 채팅 어플리케이션" />
+    <meta name="author" content="더넷" />
+    <title>hello world!</title>
+    <!-- css -->
+    <link rel="stylesheet" media="all" href="css/reset.css" />
+    <link rel="stylesheet" media="all" href="css/style.css" />
+    <link rel="stylesheet" media="all" href="css/jquery.mCustomScrollbar.css" />
+    <link rel="stylesheet" media="all" href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" />
+    <style></style>
+    <!-- js -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mCustomScrollbar.js"></script>
+    <script src="js/chat.js"></script>
+</head>
+
+<body>
+<div class="wrap">
+
+    <!-- //채팅창 영역 -->
+    <header>
+        <button class="btn_main" type="button">
+            <span class="hidden">메인으로 이동</span>
+            <div class="icon_wrap">
+                <i class="far fa-window-maximize"></i>
+            </div>
+        </button>
+        <span class="title">채팅방1(2)</span>
+        <button class="btn_menu" type="button">
+            <span class="hidden">더보기</span>
+            <div class="icon_wrap">
+                <i class="fas fa-user-circle"></i>
+            </div>
+        </button>
+        <!-- //사이드 메뉴 영역 -->
+        <aside class="popup">
+            <div class="side_menu">
+                <header>
+                    <strong class="side_title">대화멤버 목록</strong>
+                    <button class="btn_close" type="button">
+                        <span class="hidden">목록 닫기</span>
+                        <div class="icon_wrap">
+                            <span class="icon_bar"></span>
+                            <span class="icon_bar"></span>
+                        </div>
+                    </button>
+                </header>
+                <main>
+                    <ul class="member_list">
+                        <li class="member_add">
+                            <button class="btn_add" type="button">
+                                <div class="profile">
+                                    <img src="http://placehold.it/100/9370f0/ffffff/?text=Add" alt="닉네임" />
+                                </div>
+                                <strong>대화멤버 추가</strong>
+                            </button>
+                        </li>
+                        <li>
+                            <a class="profile" href="#">
+                                <img src="http://placehold.it/100/d7bcc9/ffffff/?text=1" alt="닉네임" />
+                            </a>
+                            <div class="txt">
+                                <span class="name">게스트2</span>
+                                <span class="comment">5월에는 그린플러그드 서울</span>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="profile" href="#">
+                                <img src="img/template/icon_profile_60x60.png" alt="닉네임">
+                            </a>
+                            <div class="txt">
+                                <span class="name">게스트1</span>
+                                <span class="comment">서울 락 페스티벌 가고싶다!</span>
+                            </div>
+                        </li>
+                    </ul>
+                </main>
+                <footer>
+                    <button class="btn_setting" type="button">
+                        <span>대화 설정</span> 
+                    </button>
+                    <button class="btn_exit" type="button">
+                        <span>나가기</span>
+                    </button>
+                </footer>
+            </div>
+        </aside><!-- 사이드 메뉴 영역// -->
+    </header>
+    
+    <main>
+        <!-- //메세지 주고받기 영역 -->
+        <section class="msg_view">
+
+            <!-- //시스템 메세지 영역 -->
+            <div class="msg_system visit">
+                <p class="txt"><strong>게스트1</strong> 님으로 입장했습니다.</p>
+            </div>
+            <div class="msg_system visit">
+                <p class="txt"><strong>게스트2</strong> 님이 입장했습니다.</p>
+            </div>
+            <!-- 시스템 메세지 영역// -->
+
+            <!-- //다른사람 메세지 -->
+            <div class="msg_other_wrap">
+                <div class="msg_other">
+                    <a class="profile" href="#">
+                        <img src="http://placehold.it/100/d7bcc9/ffffff/?text=1" alt="닉네임" />
+                    </a>
+                    <span class="name">게스트2</span>
+                    <div class="msg txt_wrap">
+                        <div class="txt_box">
+                            <p class="txt">안녕하세요 채팅방1 대화방입니다.안녕하세요 채팅방1 대화방입니다.</p>
+                            <div class="aside">
+                                <span class="read">1 읽음</span><br>
+                                <span class="time">오후 3:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="msg img_wrap">
+                        <div class="img_box">
+                            <a class="img" href="#">
+                                <img src="https://s.pstatic.net/static/www/mobile/edit/2018/0201/cropImg_166x108_117944874780435780.jpeg" alt="보내는 이미지" />
+                            </a>
+                            <div class="aside">
+                                <span class="read">1 읽음</span><br />
+                                <span class="time">오후 3:00</span>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div><!-- //다른사람 메세지 -->
+
+            <!-- //나의 메세지 -->
+            <div class="msg_my_wrap">
+                <div class="msg_my">
+                    <div class="msg img_wrap">
+                        <div class="img_box">
+                            <a class="img" href="#">
+                                <img src="https://s.pstatic.net/static/www/mobile/edit/2018/0201/cropImg_166x108_117944874780435780.jpeg" alt="보내는 이미지" />
+                            </a>
+                            <div class="aside">
+                                <span class="read">1 읽음</span><br />
+                                <span class="time">오후 3:00</span>
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="msg txt_wrap">
+                        <div class="txt_box">
+                            <p class="txt">안녕하세요 채팅방1 대화방입니다.</p>
+                            <div class="aside">
+                                <span class="read">1 읽음</span><br>
+                                <span class="time">오후 3:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="msg txt_wrap">
+                        <div class="txt_box">
+                            <p class="txt">안녕</p>
+                            <div class="aside">
+                                <span class="read">1 읽음</span><br>
+                                <span class="time">오후 3:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- 나의 메세지// -->
+
+            <!-- //시스템 메세지 영역 -->
+            <div class="msg_system date">
+                <p class="txt">2018년 1월 24일 수요일</p>
+            </div>
+            <div class="msg_system visit">
+                <p class="txt"><strong>게스트2</strong> 님이 퇴장했습니다.</p>
+            </div>
+            <!-- 시스템 메세지 영역// -->
+
+        </section><!-- 메세지 주고받기 영역// -->
+
+        <!-- //메세지 입력 영역 -->
+        <section class="input_wrap">
+            <ul class="input_add">
+                <li>
+                    <button type="button"><i class="far fa-comment-alt"></i></button>
+                    <aside class="side_menu">
+                        <div class="immo_popup">
+                            <div class="immo_wrap"></div>
+                            <div class="immo_icons"></div>
+                        </div>
+                    </aside>
+                </li>
+                <li><button type="button"><i class="far fa-image"></i></button></li>
+                <li><button type="button"><i class="far fa-caret-square-right"></i></button></li>
+                <li><button type="button"><i class="far fa-folder-open"></i></button></li>
+                <li><button type="button"><i class="far fa-object-ungroup"></i></button></li>
+            </ul>
+            <div class="input_msg">
+                <textarea placeholder="보낼 메시지를 입력하세요." maxlength="10000"></textarea>
+                <button class="btn_send" type="button">전송</button>
+            </div>
+        </section><!-- 메세지 입력 영역// -->
+
+    </main>
+
+    <footer>
+        <small><p class="hidden"><a href="">Terms of use</a>©<span>Thenet</span></p></small>
+    </footer><!-- 채팅창 영역// -->
+
+</div>
+
+<script type="text/javascript">
+</script>
+
+</body>
+</html>
