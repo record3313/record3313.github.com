@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap-responsive.css' %}" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		.form-horizontal div.control-group { width:260px; }
+	</style>
+</head>
+
+<body>
+    
+<div class="container-fluid">
+    <form class="form-horizontal">
+      
+      <div class="control-group">
+        <label class="control-label col-xs-2" for="inputEmail">이메일</label>
+        <div class="controls col-xs-10">
+          <input type="text" id="inputEmail" placeholder="이메일">
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label col-sm-2" for="inputPassword">암호</label>
+        <div class="controls col-xs-10">
+          <input type="password" id="inputPassword" placeholder="암호">
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <div class="controls">
+          <label class="checkbox">
+            <input type="checkbox"> 로그인 유지
+          </label>
+          <button type="submit" class="btn">로그인</button>
+        </div>
+      </div>
+
+    </form>
+</div>
+
+</body>
+</html>
