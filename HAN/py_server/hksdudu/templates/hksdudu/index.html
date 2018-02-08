@@ -1,17 +1,42 @@
+<!-- {% load staticfiles %} -->
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>hello world!</title>
-    <link rel="stylesheet" media="all" href="css/reset.css" />
-    <link rel="stylesheet" media="all" href="css/style.css" />
-    <link rel="stylesheet" media="all" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" media="all" href="bootstrap/css/bootstrap-responsive.css" >
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="js/custom.js"></script>
+    <link rel="stylesheet" media="all" href="css/reset.css">
+    <link rel="stylesheet" media="all" href="css/style.css">
+    <!-- <link rel="stylesheet" media="all" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" media="all" href="{% static 'bootstrap-responsive.css' %}"> -->
+    <!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+    <!-- <script src="js/custom.js"></script> -->
 </head>
-
 <body>
+    <!-- <div class="container">
+        <form class="form-horizontal">
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">이메일</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" placeholder="이메일">
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPassword">암호</label>
+            <div class="controls">
+              <input type="password" id="inputPassword" placeholder="암호">
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox"> 로그인 유지
+              </label>
+              <button type="submit" class="btn">로그인</button>
+            </div>
+          </div>
+        </form>
+    </div> -->
 <div class="login">
     <h2>로그인</h2>
     <p>로그인을 위해 아래 정보를 입력해 주십시오.</p>
@@ -31,21 +56,21 @@
             </div>
         </fieldset>
         <div class="btn_wrap">
-            <button type="submit" class="btn" >로그인</button>
+            <button type="submit" class="btn">로그인</button>
             <button type="button" class="btn" onclick="값뿌려주기()">이메일로뿌리기</button>
         </div>  
     </form>
 </div>
 
 <script type="text/javascript">
-/*case8*/
+
     var rowInput = document.querySelector(".row_input");
     var email = rowInput.querySelector("#email");
-    email.childNodes[1].등록유무 = "true";
 
-function 값뿌려주기(){
-    email.setAttribute("value", "han@naver.com");   
-}
+    function 값뿌려주기(){
+        email.setAttribute("value", "han@naver.com");   
+    }
+    
 </script>
 </body>
 </html>
