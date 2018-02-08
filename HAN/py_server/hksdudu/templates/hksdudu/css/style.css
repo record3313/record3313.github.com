@@ -21,7 +21,7 @@ input[type="checkbox"]:checked { background:#fff url('../img/login_checked.png')
 .checkbox { display:inline-block; float:right; padding-right:4px; }
 .checkbox label { line-height:20px; margin-right:8px; text-align:right; }
 .hidden { visibility:hidden; height:0; display:block; }
-.btn { text-align:center; min-width:127px; line-height:40px; color:#fff; background-color:#000; }
+.btn { text-align:center; min-width:127px; line-height:40px; color:#fff; background-color:#000; margin-bottom:4px; }
 
 /* contents */
 .login { width:330px; height:500px; margin:0 auto; margin-top:70px; }
