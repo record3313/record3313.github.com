@@ -31,14 +31,14 @@ header .btn_menu { right:0; }
 .popup { position:fixed; top:0; right:0; background-color:rgba(0,0,0,0); transition:all 0.3s ease; }
 header .side_menu { position:absolute; top:0; bottom:0; right:-270px; width:270px; background-color:#fafafa; transition:all 0.3s ease; }
 header .side_menu > * { background-color:#fafafa; }
-header .side_menu > header { position:absolute; width:100%; border-bottom:1px solid #e6e6e6; }
+header .side_menu > header { border-bottom:1px solid #e6e6e6; }
 header .side_menu > header > .side_title { font-size:14px; line-height:54px; padding-left:20px; color:#000; }
 .btn_close {  }
 .btn_close .icon_wrap { padding:10px; }
 .btn_close span { text-align:left; background-color:#474e60; }
 .btn_close span:first-child { transform:rotate(45deg); margin-top:-1px; }
 .btn_close span:nth-child(2) { margin-top:-2px; transform:rotate(-45deg); margin-top:-3px; }
-header .side_menu > main { position:absolute;top:54px; left:0; right:0; bottom:0; }
+header .side_menu > main { min-height:100%; }
 .member_list { }
 .member_list > li { padding:13px 20px; }
 .member_list .profile { display:inline-block; vertical-align:middle; }
@@ -46,7 +46,7 @@ header .side_menu > main { position:absolute;top:54px; left:0; right:0; bottom:0
 .member_list .txt .name { line-height:1.4; }
 .member_list .txt .comment { line-height:1.4; font-size:11px; }
 .member_add strong { display:inline-block; font-size:13px; vertical-align:middle; margin-left:4px; color:#000; }
-header .side_menu > footer { height:54px; border-top:1px solid #e6e6e6; font-size:0; margin-top:-54px; }
+header .side_menu > footer { height:54px; border-top:1px solid #e6e6e6; font-size:0; margin-top:-108px; position:relative; }
 header .side_menu > footer:before { content:''; display:block; width:1px; height:13px; background-color:#cacaca; position:absolute; top:22px; left:50%; }
 header .side_menu > footer button { display:inline-block; height:100%; color:#666; width:50%; font-size:13px; }
 
