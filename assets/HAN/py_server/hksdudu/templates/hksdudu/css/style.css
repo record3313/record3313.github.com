@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+/* common */
+body { background-color:rgba(203, 203, 210, 0.15); }
+input, textarea, select, button { 
+    vertical-align:middle; 
+    border:0;
+    border-radius:0;
+    -webkit-appearance:none; 
+    -moz-appearance:none;
+    appearance:none;
+}
+select:focus, input:focus, textarea:focus { outline:0; }
+body h2 { font-size:24px; letter-spacing:0.9px; line-height:24px; color:#000; }
+button { vertical-align:middle; border:0; cursor:pointer; }
+label { float:left; display:inline-block; line-height:40px; color:#000; }
+input { float:right; height:40px; padding:0 8px; border:1px solid #000; background:#fff; }
+input[type="checkbox"] { float:none; padding:0; margin:0; width:20px; height:20px; border: 1px solid #000; cursor:pointer; }
+input[type="checkbox"]:checked { background:#fff url('../img/login_checked.png') no-repeat center center; }
+.row_input:after { display:block; content:''; clear:both; zoom:1; }
+.checkbox { display:inline-block; float:right; padding-right:4px; }
+.checkbox label { line-height:20px; margin-right:8px; text-align:right; }
+.hidden { visibility:hidden; height:0; display:block; }
+.btn { text-align:center; min-width:127px; line-height:40px; color:#fff; background-color:#000; margin-bottom:4px; }
+
+/* contents */
+.login { width:330px; height:500px; margin:0 auto; margin-top:70px; }
+.login:after { display:block; content:''; clear:both; zoom:1; }
+.login h2 { text-align:center; margin-bottom:16px; }
+.login p { text-align:center; color:#777; }
+.login fieldset { height:200px; padding:0 20px; margin:20px 0; border:0; }
+.row_input { margin:0 15px; }
+.row_input:first-child { margin-top:30px; }
+.row_input + .row_input { margin-top:20px; } 
+.login label { display:none; }
+.login .checkbox label { display:block; }
+.login input[type="email"], 
+.login input[type="password"] {width:100%; }
+.btn_wrap { text-align:center; }

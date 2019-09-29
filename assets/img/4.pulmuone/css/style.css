@@ -1,0 +1,551 @@
+@charset "utf-8";
+
+/* reset.css */
+html, body, div, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, address, dl, dt, dd, ol, ul, li, fieldset, form, legend, table, caption, tbody, tfoot, thead, tr, th, td, input, select, textarea{margin:0; padding:0;}
+h1, h2, h3, h4, h5, h6{font-size:100%;}
+img, fieldset{border:0px;}
+table{border-collapse:collapse;}
+ul, ol, li{list-style:none;}
+address, em{font-style:normal;}
+li img, object{vertical-align:top;}
+input, select, textarea, form img{vertical-align:middle;}
+a{ outline:0; text-decoration:none; border:none;}
+body { font: 12px /1.2 Dotum, "돋움", arial; color:#666;   }
+.noMargin { margin-right : 0px!important ;}
+.noBg { background-image : none!important ;}
+.noBorder{ border-right : 0px!important ; }
+
+/*layout*/
+/*Wrap*/
+#wrap { width : 100% ; overflow : hidden ; }
+#header { width : 900px ; height: 100px ; position : absolute ; left : 54% ; top : 14% ; margin-left : -640px ; }
+
+#main { background : url(../img/1p_bg.jpg) no-repeat 0px 0px ; margin : 0px auto ; background-size : cover ; position : fixed ; top:0; bottom:0; left:0; right:0; z-index:4000; }
+#page2 { width : 100% ; height: 970px ; margin : 0px auto ; position : relative ; background : url(../img/2_bg.jpg) no-repeat 0px 0px ; background-size : cover ; z-index: 900; }
+#page3 { width : 100% ; height: 1150px ; margin : 0px auto ; position : relative ; z-index: 900; }
+#page4 { width : 100% ; height: 990px ; margin : 0px auto ; position : relative ; z-index : 1000 ; }
+#page5 { width : 100% ; height: 1250px ; left : 0px ; top : 210px ; margin : 0px auto ; position : relative ; background : url(../img/5_bg.png) no-repeat 0px 0px ; background-size : cover ; perspective : -700px ; z-index: 900; }
+
+
+
+/*layout*/
+
+/*main-(page1)*/
+.cloud1 { position : absolute ; left : 0px ; top : 55px ; animation : position9 3s infinite alternate ; }
+.cloud2 { position : absolute ; left : 0px ; top : 0px ; animation : position8 3s infinite alternate ;  }
+.cloud3 { position : absolute ; left : 1014px ; top : 289px ; animation : position8 3s infinite alternate ; }
+.cloud4 { position : absolute ; left : 1162px ; top : 69px ; animation : position9 3s infinite alternate ; }
+.cloud5 { position : absolute ; left : 1573px ; top : 302px ; animation : position8 3s infinite alternate ; }
+
+.page1 { width : 600px ; height : 400px ; position : absolute ; left : 50% ; top : 50% ; margin-left : -300px ; margin-top : -200px ; }
+.logo { position : absolute ; left : 50% ; top : 50% ; margin-left : -70px ; margin-top : -53px ; }
+
+/*page2*/
+.contents2 { width : 1280px ; height : 580px ; position : absolute ; left : 50% ; bottom : 18% ; margin-left : -640px ; }
+.visual2 { width : 737px ; height : 650px ; position : absolute ; left : -2% ; top : 1% ; }
+
+
+/*bg2-(page2)*/
+.fence { position : absolute ; left : 0px ; top : 526px ; }
+.forest_left { position : absolute ; left : 0px ; top : -50px ; z-index : 11 ; }
+.forest_top { position : absolute ; left : -160px ; top : -30px ; }
+.forest_right { position : absolute ; right : 400px ; top : 0px ; z-index : 12 ; }
+.tree { position : absolute ; right : 0px ; top : -20px ; height : 986px ; }
+.house { position : absolute ; right : 31% ; top : 611px ; }
+.field { position : absolute ; right : 31% ; top : 640px ; }
+.farmer { position : absolute ; right : 38.5% ; top : 640px ; animation : position2 10s  ; }
+.cart { position : absolute ; right : 30% ; top : 686px ; }
+.animal { position : absolute ; right : 20.5% ; top : 693px ; }
+
+/*header-(page2)*/
+#header h1 { position : absolute ; left : 0px ; top : 0px ; z-index : 1000 ; }
+#gnb { width : 860px ; height: 106px ; overflow : hidden ; position : absolute ; left : 204px ; top : 0px ; background : url(../img/2_gnb_bg.png) no-repeat 0px 0px ; z-index : 1100 ; }
+#gnb li { float : left ; }
+#gnb li a { width : 170px ; height : 106px ; display : block ; background-repeat : no-repeat ; background-position : 0px -106px ; text-indent : -9999px ; }
+#gnb li a:hover { }
+#gnb li .gnb1 { background-image : url(../img/2_menu1_on.png) ; margin-right : 30px ; }
+#gnb li .gnb2 { background-image : url(../img/2_menu2_on.png) ; margin-right : 30px ; }
+#gnb li .gnb3 { background-image : url(../img/2_menu3_on.png) ; margin-right : 50px ; }
+#gnb li .gnb4 { background-image : url(../img/2_menu4_on.png) ; }
+#gnb li a:hover { background-position : 0px 0px ; }
+
+/*contents2-(page2)*/
+.visual2 img { position : absolute ; left : 53px ; top : 190px ; z-index : 10 ; }
+.main_title { width : 500px ; height : 650px ; position : absolute ; left : 715px ; top : 90px ; z-index : 1 ; }
+.main_title h3 { margin-bottom : 9px ; }
+.main_title h4 { margin-bottom : 18px ; }
+.main_title h5 { margin-bottom : 24px ; }
+.bird1 { position : absolute ; right : 250px ; top : 10px ; animation : position3 5s ease infinite ; transition : all 2s ; }
+.effect1 { position : absolute ; left : 228px ; top : 23px ; animation : position1 1.3s ease infinite alternate ; }
+.effect2 { position : absolute ; left : 358px ; top : 50px ; animation : position2 1.2s ease infinite alternate ; }
+.effect3 { position : absolute ; left : 6px ; top : 42px ; }
+.effect4 { position : absolute ; left : 77px ; top : 169px ; }
+.effect5 { position : absolute ; left : 105px ; top : 240px ; }
+.effect6 { position : absolute ; left : 72px ; top : 108px ; }
+.effect7 { position : absolute ; left : 40px ; top : 59px ; }
+.effect8 { position : absolute ; left : 517px ; top : 206px ; }
+.effect9 { position : absolute ; left : -55px ; top : -35px ; }
+.effect10 { position : absolute ; left : 50px ; top : -80px ; }
+.effect11 { position : absolute ; left : 180px ; top : -40px ; }
+.banner_top { position : absolute ; left : 820px ; top : -240px ; z-index : 15 ; animation : position7 3s infinite alternate ; }
+
+/*banner-(page2)*/
+.bannerWrap { width : 695px ; height : 1327px ; position : absolute ; right : 0px ; top : -627px ; z-index : 14; transition : all 0.5s ; }
+.bannerWrap:hover { width : 229px ; height : 627px ; right : 301px ; top : 0px ; }
+.bannerWrap:hover .effect12 { right:-311px; top:0px; }
+.bannerWrap:hover .banner { right:20px; top:0px; }
+.banner { width : 229px ; height : 627px ; background : url(../img/2_banner_bg.png) no-repeat 0px 0px ; position : absolute ; right : 321px ; top : 0px ; transition : all 0.5s ; z-index : 12 ; }
+.banner1 { position : absolute ; right : 34px ; top : 312px ; }
+.banner li img:hover { opacity : 0.5 ; }
+.banner2 { position : absolute ; left : 37px ; top : 419px ; }
+.banner3 { position : absolute ; left : 37px ; top : 526px ; }
+.effect12 { position : absolute ; right : -800px ; top : -600px ; }
+.bird2 { position : absolute ; left : 100px ; top : 263px ; z-index : 16 ; }
+
+/*sub_menu-(page2)*/
+.sub_menu { width : 119px ; height : 150px ; background-image : url(../img/2_books.png) ; background-repeat : no-repeat ; background-position : 0px -150px ; position : absolute ; left : 76% ; bottom : 30px ; text-indent : -9999px ; z-index : 1100 ; }
+.sub_menu:hover { background-position : 0px 0px ; }
+
+105px ; }
+.contents3 { position : absolute ; left : 50% ; top : 50% ; margin-left : -920px ; margin-top : -490px ; perspective : 700px ; }
+.panel_bg { width : 1800px ; height : 900px ; animation : rotate2 2.5s linear infinite alternate ; position : absolute ; right : 50% ; top : 53px ; margin-right : -905px ; } /*등속 무한반복 번갈아서*/
+
+/*contents3-(page3)*/
+.iron1 { position : absolute ; right : 50% ; top : -107px ; margin-right : -954px ; animation : position4 2.5s linear infinite alternate ; }
+.iron2 { position : absolute ; right : 50% ; top : 62px ; margin-right : 503px ; animation : rotate3 2.5s linear infinite alternate ; }
+.iron3 { position : absolute ; right : 50% ; top : 62px ; margin-right : -597px ; animation : rotate4 2.5s linear infinite alternate ; }
+
+/*panel_bg-(page3)*/
+.bg3 { position : absolute ; left : 0px ; top : -105px ;}
+.panel_bg1 { position : absolute ; right : 50% ; top : -1px ; margin-right : -916px ; }
+.panel_bg2 { position : absolute ; right : 50% ; top : -1px ; margin-right : -916px ;}
+.sprout { position : absolute ; left : 127px ; top : -15px ; animation : rotate1 2s linear infinite alternate ; }
+.sprout:hover { animation : rotate5 4s linear infinite alternate ; } 
+.pencil { position : absolute ; right : 77px ; bottom : 170px ; }
+.panel_bg h3 { position : absolute ; left : 300px ; top : 195px ; }
+.panel_bg h4 { width : 511px ; height : 24px ; background : url(../img/3_title2.png) no-repeat 0px -24px ; position : absolute ; right : 330px ; top : 200px ; text-indent : -9999px ; }
+.panel_bg h4:hover { background : url(../img/3_title2.png) no-repeat 0px 0px ; }
+.panel_bg ul { width : 897px ; position : absolute ; left : 450px ; overflow : hidden ; }
+.panel_bg ul li { float : left ; }
+
+/*.panel_bg_img1-(page3)*/
+.panel_bg_img1 { top : 300px ; }
+.panel_bg_img1 li { margin-right : 27px ; }
+
+/*.panel_img2-(page3)*/
+.panel_bg_img2 { top : 300px ; }
+.panel_bg_img2 li { margin-right : 27px ; }
+.img1_tran { animation : opacity2 15s linear infinite ; }
+.img2_tran { animation : opacity3 15s linear infinite ; }
+.img3_tran { animation : opacity4 15s linear infinite ; }
+.img4_tran { animation : opacity5 15s linear infinite ; }
+.img5_tran { animation : opacity6 15s linear infinite ; }
+.img6_tran { animation : opacity7 15s linear infinite ; }
+
+/*sub2_text-(page3)*/
+.sub2_text { width : 1800px ; height : 900px ; position : absolute ; right : 50% ; top : 0px ; margin-right : -849px ; }
+.sub2_text ul { width : 897px ; position : absolute ; left : 465px ; overflow : hidden ; }
+.sub2_text ul li { float : left ; }
+
+/*text1-(page3)*/
+.sub2_text .text1 { top : 526px ; margin-left : 88px ; }
+.sub2_text .text1 .img1_1 { margin-right : 92px ; }
+.sub2_text .text1 .img2_1 { margin-right : 95px ; }
+.sub2_text .text1 .img3_1 { margin-right : 122px ; }
+.sub2_text .text1 .img4_1 { margin-right : 114px ; }
+.sub2_text .text1 .img5_1 { margin-right : 103px ; }
+
+/*text2-(page3)*/
+.sub2_text .text2 { top : 560px ; margin-left : 79px ; }
+.sub2_text .text2 .img1_2 { margin-right : 82px ; }
+.sub2_text .text2 .img2_2 { margin-right : 72px ; }
+.sub2_text .text2 .img3_2 { margin-right : 88px ; }
+.sub2_text .text2 .img4_2 { margin-right : 90px ; }
+.sub2_text .text2 .img5_2 { margin-right : 79px ; }
+
+/*text3-(page3)*/
+.sub2_text .text3 { width : 1176px ; position : absolute ; top : 657px ; left : 345px ; }
+
+/*popup1-(page3)*/
+.popup1 { width : 1150px ; height : 858px ; position : absolute ; right : -560px ; bottom : -558px ; transition : all 0.5s ; }
+.popup1:hover { width : 650px ; height : 358px ; right : -105px ; bottom : -109px ; }
+.popup1_text { position : absolute ; right : 40px ; bottom : 21px ; }
+.screw { position : absolute ; right : 366px ; bottom : 193px ; }
+
+
+/*layout*/
+/*page4*/
+.visual4 { width : 750px ; height : 600px ; position : absolute ; left : 50% ; top : 42% ; margin-left : -375px ; margin-top : -300px ; }
+.contents4 .slider { width : 750px ; height : 600px ; position : absolute ; left : 0px ; top : 0px ; }
+.contents4 .panel1Wrap { width : 750px ; height : 600px ; position : absolute ; left :0px ; top : -100px ; }
+.contents4 .panel1_left { width : 492px ; height : 460px ; position : absolute ; left : 0px ; top : 0px ; }
+.contents4 .panel1_right { width : 250px ; height : 300px ; position : absolute ; right : 15px ; top : 202px ; }
+
+/*bg4-(page4)*/
+.wave_top { position : absolute ; left : 0px ; top : -113px ; }
+.wave_bottom { position : absolute ; left : 0px ; bottom : -210px ; background-color : #fff ; } 
+.rocks_bottom { position : absolute ; left : 0px ; bottom : -210px ; z-index : 10 ; }
+.leaf1{ position : absolute ; left : 0px ; top : 260px ; z-index : 100 ; }
+.leaf2 { position : absolute ; right : 0px ; top : 37px ; z-index : 100 ; }
+
+/*slider-(page4)*/
+.slider h3 { position : absolute ; left : 0px ; top : -60px ; }
+.slider h4 { position : absolute ; left : 0px ; top :-27px ; }
+.flower1 { position : absolute ; left : -13% ; top : 46% ; animation : position6 3s ease infinite alternate ; }
+.flower2 { position : absolute ; right : 0% ; bottom : 26% ; animation : position6 3s ease infinite alternate ; }
+.flower3 { position : absolute ; right : -12% ; bottom : 29% ; animation : position6 3s ease infinite alternate ; }
+.rocks1 { position : absolute ; left : -15px ; bottom : -135px ; animation : position5 1s ease infinite alternate ; }
+.rocks2 { position : absolute ; left : 25px ; bottom : -110px ; animation : position5 1s ease infinite alternate ; }
+.rocks3 { position : absolute ; left : 115px ; bottom : -127px ; z-index : 3 ; animation : position5 1s ease infinite alternate ; }
+.rocks4 { position : absolute ; left : 275px ; bottom : -66px ; z-index : 3 ; animation : position5 1s ease infinite alternate ; }
+.rocks1_shadow { position : absolute ; left : 45px ; bottom : -77px ; animation : position5 1s ease infinite alternate ; }
+.rocks_ss1 { position : absolute ; left : 120px ; bottom : -235px ;  animation : position5 1s ease infinite alternate ; }
+.rocks_ss2 { position : absolute ; left : 116px ; bottom : -325px ;  animation : position5 1.2s ease infinite alternate ; }
+.rocks_ss3 { position : absolute ; left : 100px ; bottom : -172px ;  animation : position5 1.4s ease infinite alternate ; }
+.waterdrops { position : absolute ; left : 10px ; bottom : -400px ; z-index : 3 ; animation : position5 2s ease infinite alternate ; }
+
+/*panel1_left-(page4)*/
+.leaf3 { position : absolute ; left : -135px ; top : 306px ; }
+.leaf3_text { position : absolute ; left : 77px ; top : 361px ; }
+.product1_1 { position : absolute ; left : 226px ; top : 200px ; }
+.waterdrop1 { position : absolute ; left : 195px ; top : 225px ; }
+.waterdrop2 { position : absolute ; left : 340px ; top : 360px ; }
+
+/*panel1_right-(page4)*/
+.detail { position : absolute ; right : 0px ; top : 0px ; }
+.botton_advice { position : absolute ; right : 102px ; bottom : 35px ; z-index : 102 ; }
+.botton_order { position : absolute ; right : -18px ; bottom : 35px ; z-index : 102 ; }
+
+/*naviWrap-(page4)*/
+.naviWrap { width : 648px ; height : 138px ; margin : 138px auto ; position : absolute ; left : 50% ; bottom : -25% ; margin-left : -313px ; animation : position5 1s ease infinite alternate ; }
+.navi { width : 816px ; height : 100% ; margin-left : -72px ; }
+.navi li { float : left ; margin-right : 22px ; opacity:1; }
+.navi li:first-child { opacity:0; }
+.navi li:last-child { opacity:0; }
+.prev { position : absolute ; left : -28px ; bottom : 25px ; z-index : 101 ; }
+.next { position : absolute ; right : -47px ; bottom : 25px ; z-index : 101 ; }
+
+/*layout*/
+/*page5*/
+.contents5 { width : 100% ; }
+.roll { position : absolute ; left : 50% ; top :-530px ; margin-left : -350px ; transition : all 0.5s ; }
+.roll:hover { top : -410px ; } 
+.visual5 { width : 900px ; height : 600px ; position : absolute ; left : 50% ; top : 50% ; margin-left : -450px ; margin-top : -410px ; }
+.visual5_bottom { width : 1000px ; height : 270px ; position : absolute ; left : 150px ; bottom : -140px ; }
+.visual5_right { width : 900px ; height : 650px ;  position : absolute ; right :-350px ; top : 40px ; }
+.contents5 .popup2 { width : 492px ; height : 450px ; position : absolute ; left : 323px ; top : 237px ; animation : position5 1s ease infinite alternate ; }
+
+/*bg5-(page5)*/
+.sky2 { position : absolute ; left : 0px ; top : 0px ; }
+.frame_left { position : absolute ; left : -14px ; top : -61px ; animation : rotate7 8s linear infinite alternate ; }
+.frame_right { position : absolute ; right : -3px ; top : -60px ; animation : rotate8 8s linear infinite alternate ; }
+.leaf4_left { position : absolute ; left : -250px ; top : -310px ; animation : rotate9 4s linear infinite alternate ; }
+.leaf4_right { position : absolute ; right : -191px ; top : -290px ; animation : rotate10 4s linear infinite alternate ; }
+.panel2 { position : absolute ; left : 0px ; bottom : -191px ; } 
+.linen { position : absolute ; left : 340px ; bottom : -35px ; } 
+.light1 { position : absolute ; left : 244px ; top : 173px ; opacity : 0.8 ; } 
+.light2 { position : absolute ; left : 258px ; top : 125px ; opacity : 0.6 ; } 
+
+/*roll-(page5)*/
+.dish { position : absolute ; left : 0px ; top : 0px ; }
+.text17 { position : absolute ; left : 205px ; top : 425px ; }
+.spoon { position : absolute ; left : 380px ; top : 420px ; }
+
+/*popup2-(page5)*/
+.panel2_left { position : absolute ; left : 0px ; top : 0px ; }
+.text10 { position : absolute ; left : 142px ; top : 50px ; }
+.text11 { position : absolute ; left : 150px ; top : 99px ; }
+.text12 { position : absolute ; left : 82px ; top : 144px ; }
+.text13 { position : absolute ; left : 106px ; top : 216px ; }
+.text14 { position : absolute ; left : 116px ; top : 298px ; }
+.text15 { position : absolute ; left : 150px ; top : 331px ; }
+.text16 { position : absolute ; left : 183px ; top : 311px ; }
+
+/*visual5_bottom-(page5)*/
+.grain1 { position : absolute ; left : 125px ; top : 62px ; z-index : 2 ; }
+.grain2 { position : absolute ; left : 79px ; top : 117px ;  z-index : 3 ; }
+.grain3 { position : absolute ; left : 47px ; top : 99px ; }
+.grain4 { position : absolute ; left : 310px ; top : 20px ; }
+.grain5 { position : absolute ; left : 486px ; top : 135px ; }
+.grain6 { position : absolute ; left : 368px ; top : 63px ; }
+.grain7 { position : absolute ; left : 841px ; top : 80px ; }
+.grain8 { position : absolute ; left : 540px ; top : 145px ; z-index : 4 ; }
+.select1 { position : absolute ; left : 833px ; top : 128px ; }
+.select2 { position : absolute ; left : 726px ; top : 135px ; }
+
+/*visua5_right-(page5)*/
+.road { position : absolute ; left : -190px ; top : 90px ; }
+.barteria1 { position : absolute ; left : -55px ; top : 142px ; }
+.barteria2 { position : absolute ; left : 6px ; top : 170px ; }
+.barteria3 { position : absolute ; left : 6px ; top : 154px ; }
+.barteria4 { position : absolute ; left : 6px ; top : 138px ; }
+.barteria5 { position : absolute ; left : 35px ; top : 100px ; }
+.barteria6 { position : absolute ; left : 53px ; top : 100px ; }
+.barteria7 { position : absolute ; left : 206px ; top : 147px ; }
+.barteria8 { position : absolute ; left : 206px ; top : 164px ; }
+.barteria9 { position : absolute ; left : 182px ; top : 206px ; }
+.barteria10 { position : absolute ; left : 163px ; top : 206px ; }
+.barteria11 { position : absolute ; left : 144px ; top : 206px ; }
+.barteria12 { position : absolute ; left : 164px ; top : 269px ; }
+.barteria13 { position : absolute ; left : -14px ; top : 378px ; }
+.barteria14 { position : absolute ; left : -36px ; top : 334px ; }
+.barteria15 { position : absolute ; left : -53px ; top : 334px ; }
+.barteria16 { position : absolute ; left : -116px ; top : 418px ; }
+.barteria17 { position : absolute ; left : -133px ; top : 418px ; }
+.barteria18 { position : absolute ; left : -150px ; top : 418px ; }
+.barteria19 { position : absolute ; left : -166px ; top : 411px ; }
+.barteria20 { position : absolute ; left : -73px ; top : 142px ; }
+
+.perform1 { position : absolute ; left : 68px ; top : 47px ; }
+.perform2 { position : absolute ; left : -100px ; top : 384px ; }
+.road { position : absolute ; left : -190px ; top : 90px ; }
+.product { position : absolute ; left : -28px ; top : 150px ; }
+
+.visual5_right .text1 { position : absolute ; left : 10px ; top : 605px ; }
+.visual5_right .text3 { position : absolute ; left : 13px ; top : 633px ; }
+.text4 { position : absolute ; left : 274px ; top : 5px ; }
+.text5 { position : absolute ; left : 280px ; top : 103px ; }
+.text6 { position : absolute ; left : 278px ; top : 124px ; }
+.text7 { position : absolute ; left : 457px ; top : 127px ; }
+.text8 { position : absolute ; left : 279px ; top : 191px ; }
+.text9 { position : absolute ; left : 279px ; top : 372px ; }
+.panel2_s { position : absolute ; left : 212px ; top : 443px ; }
+.panel2_s_text { position : absolute ; left : 325px ; top : 485px ; }
+
+
+#left_navi { position : fixed ; right : 20px ; top : 50% ; margin-top : -60px ; z-index : 3000 ; }
+#left_navi li a { display : block ; width : 20px ; height : 20px ; margin-bottom : 5px ; background : #666 ; border-radius : 10px ; }
+#left_navi li a.on { background : orange ; }
+
+/*animation*/
+
+/*(1)-opacity*/
+@keyframes opacity1 {	
+	0% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+@keyframes opacity2 {
+	0% { opacity : 0 ; }
+	13% { opacity : 1 ; }
+	26% { opacity : 1 ; }
+	39% { opacity : 1 ; }
+	52% { opacity : 1 ; }
+	65% { opacity : 1 ; }
+	78% { opacity : 1 ; }
+	91% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+@keyframes opacity3 {
+	0% { opacity : 0 ; }
+	13% { opacity : 0 ; }
+	26% { opacity : 1 ; }
+	39% { opacity : 1 ; }
+	52% { opacity : 1 ; }
+	65% { opacity : 1 ; }
+	78% { opacity : 1 ; }
+	91% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+@keyframes opacity4 {
+	0% { opacity : 0 ; }
+	14% { opacity : 0 ; }
+	26% { opacity : 0 ; }
+	39% { opacity : 1 ; }
+	52% { opacity : 1 ; }
+	65% { opacity : 1 ; }
+	78% { opacity : 1 ; }
+	91% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+@keyframes opacity5 {
+	0% { opacity : 0 ; }
+	13% { opacity : 0 ; }
+	26% { opacity : 0 ; }
+	39% { opacity : 0 ; }
+	52% { opacity : 1 ; }
+	65% { opacity : 1 ; }
+	78% { opacity : 1 ; }
+	91% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+@keyframes opacity6 {
+	0% { opacity : 0 ; }
+	13% { opacity : 0 ; }
+	26% { opacity : 0 ; }
+	39% { opacity : 0 ; }
+	52% { opacity : 0 ; }
+	65% { opacity : 1 ; }
+	78% { opacity : 1 ; }
+	91% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+@keyframes opacity7 {
+	0% { opacity : 0 ; }
+	13% { opacity : 0 ; }
+	26% { opacity : 0 ; }
+	39% { opacity : 0 ; }
+	52% { opacity : 0 ; }
+	65% { opacity : 0 ; }
+	78% { opacity : 1 ; }
+	91% { opacity : 1 ; }
+	100% { opacity : 0 ; }
+}
+
+/*(2)-scale*/
+@keyframes scale1 {	
+	0% { transform : scale(1); }
+	100% { transform : scale(0.9); }
+}
+
+/*(3)-position*/
+@keyframes position1{
+	from { transform : translate( -20px, -10px ); }
+	to { transform : translate( -10px, 0px ); }
+}
+
+@keyframes position2{
+	from { transform : translate( 0px, 0px ); }
+	to { transform : translate( -25px, 30px ); }
+}
+
+@keyframes position3{
+	0% { transform : translate( -300px, 100px ); opacity : 0 ; }
+	50% { opacity : 1 ; }
+	100% { transform : translate( 0px, 0px ); opacity : 0 ; }
+}
+
+@keyframes position4 {
+	0% { transform : translate( -2px, 0px ) ; }
+	10% { transform : translate( -2px, 0px ) ; }
+	30% { transform : translate( -1px, 0px ) ; }
+	50% { transform : translate( 0px, 0px ) ; }
+	70% { transform : translate( 1px, 0px ) ; }
+	90% { transform : translate( 2px, 0px ) ; }
+	100% { transform : translate( 2px, 0px ) ; }
+}
+
+@keyframes position5 {
+	0% { transform : translate( 0px, 0px ); }
+	100% { transform : translate( 0px, 10px ); }
+}
+
+@keyframes position6 {
+	0% { transform : translate( 0px, 0px ); }
+	100% { transform : translate( 30px, 0px ); }
+}
+
+@keyframes position7{
+	0% { transform : translate( -1px, 0px ); }
+	35% { transform : translate( 0px, 0px ); }
+	40% { transform : translate( 7px, 0px ); }
+	45% { transform : translate( 0px, 0px ); }
+	50% { transform : translate( 7px, 0px ); }
+	55% { transform : translate( 0px, 0px ); }
+	60% { transform : translate( 7px, 0px ); }
+	100% { transform : translate( 11px, 0px ); }
+}
+
+@keyframes position8 {
+	0% { transform : translate( 0px, 0px ); }
+	100% { transform : translate( 60px, 0px ); }
+}
+
+@keyframes position9 {
+	0% { transform : translate( 0px, 0px ); }
+	100% { transform : translate( -60px, 0px ); }
+}
+
+/*(4)-rotate*/
+@keyframes rotate1 {	
+	0% { transform : rotate( 0deg ) ; }
+	100% { transform : rotate( 3deg ) ; }
+}
+
+@keyframes rotate2 {
+	0% { transform : rotateY( 0.3deg ) ; transform-origin : center top ; }
+	10% { transform : rotateY( 0.3deg ) ; transform-origin : center top ; }
+	30% { transform : rotateY( 0.15deg ) ; transform-origin : center top ; }
+	50% { transform : rotateY( 0deg ) ; transform-origin : center top ; }
+	70% { transform : rotateY( -0.1.5deg ) ; transform-origin : center top ; }
+	90% { transform : rotateY( -0.3deg ) ; transform-origin : center top ; }
+	100% { transform : rotateY( -0.3deg ) ; transform-origin : center top ; }
+}
+
+@keyframes rotate3 {
+	0% { transform : rotateY( 10.5deg ) ; transform-origin : center top ; }
+	10% { transform : rotateY( 10.5deg ) ; transform-origin : center top ; }
+	30% { transform : rotateY( 5.5deg ) ; transform-origin : center top ; }
+	50% { transform : rotateY( 0deg ) ; transform-origin : center top ; }
+	70% { transform : rotateY( -5.5deg ) ; transform-origin : center top ; }
+	90% { transform : rotateY( -10.5deg ) ; transform-origin : center top ; }
+	100% { transform : rotateY( -10.5deg ) ; transform-origin : center top ; }
+}
+
+@keyframes rotate4 {
+	0% { transform : rotateY( -10.5deg ) ; transform-origin : center top ; }
+	10% { transform : rotateY( -10.5deg ) ; transform-origin : center top ; }
+	30% { transform : rotateY( -5.5deg ) ; transform-origin : center top ; }
+	50% { transform : rotateY( 0deg ) ; transform-origin : center top ; }
+	70% { transform : rotateY( 5.5deg ) ; transform-origin : center top ; }
+	90% { transform : rotateY( 10deg ) ; transform-origin : center top ; }
+	100% { transform : rotateY( 10.5deg ) ; transform-origin : center top ; }
+}
+
+@keyframes rotate5 {
+	0% { transform : rotate( 5deg ) ; }
+	30% { transform : rotate( 5deg ) ; }
+	70% { transform : rotate( 0deg ) ; }
+	100% { transform : rotate( 0deg ) ; }
+}
+
+@keyframes rotate6 {
+	0% { transform : rotateY( 0deg ) ; transform-origin : center top ; }
+	100% { transform : rotateY( 0.5deg ) ; transform-origin : center top ; }
+}
+
+@keyframes rotate7 {
+	0% { transform : rotateY( 30deg ) ; transform-origin : left center; } 
+	10% { transform : rotateY( 30deg ) ; transform-origin : left center ; } 
+	30% { transform : rotateY( 15deg ) ; transform-origin : left center ; } 
+	50% { transform : rotateY( 0deg ) ; transform-origin : left center ; } 
+	70% { transform : rotateY( -15deg ) ; transform-origin : left center ; }  
+	90% { transform : rotateY( -30deg ) ; transform-origin : left center ; } 
+	100% { transform : rotateY( -30deg ) ; transform-origin : left center ; }  
+}
+
+@keyframes rotate8 {
+	0% { transform : rotateY( -30deg ) ; transform-origin : right center ; }
+	10% { transform : rotateY( -30deg ) ; transform-origin : right center ; }
+	30% { transform : rotateY( -15deg ) ; transform-origin : right center ; }
+	50% { transform : rotateY( 0deg ) ; transform-origin : right center ; }
+	70% { transform : rotateY( 15deg ) ; transform-origin : right center ; }
+	90% { transform : rotateY( 30deg ) ; transform-origin : right center ; }
+	100% { transform : rotateY( 30deg ) ; transform-origin : right center ; }
+}
+
+@keyframes rotate9 {
+	0% { transform : rotateY( 10deg ) ; transform-origin : left center; } 
+	10% { transform : rotateY( 10deg ) ; transform-origin : left center ; } 
+	30% { transform : rotateY( 7deg ) ; transform-origin : left center ; } 
+	50% { transform : rotateY( 0deg ) ; transform-origin : left center ; } 
+	70% { transform : rotateY( -7deg ) ; transform-origin : left center ; }  
+	90% { transform : rotateY( -10deg ) ; transform-origin : left center ; } 
+	100% { transform : rotateY( -10deg ) ; transform-origin : left center ; }  
+}
+
+@keyframes rotate10 {
+	0% { transform : rotateY( -10deg ) ; transform-origin : right center ; }
+	10% { transform : rotateY( -10deg ) ; transform-origin : right center ; }
+	30% { transform : rotateY( -7deg ) ; transform-origin : right center ; }
+	50% { transform : rotateY( 0deg ) ; transform-origin : right center ; }
+	70% { transform : rotateY( 7deg ) ; transform-origin : right center ; }
+	90% { transform : rotateY( 10deg ) ; transform-origin : right center ; }
+	100% { transform : rotateY( 10deg ) ; transform-origin : right center ; }
+}
+

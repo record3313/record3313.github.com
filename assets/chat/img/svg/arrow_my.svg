@@ -1,0 +1,11 @@
+<svg clsss="arrow-my" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10.82 10.1">
+    <defs><style>
+    .cls-1{fill:#f5f697;stroke:#f5f697;}
+    .cls-1,
+    .cls-2{stroke-miterlimit:10;stroke-width:1px;}
+    .cls-2{fill:none;stroke:#000;opacity:0.1;}
+    </style></defs>
+    <desc>arrow</desc>
+    <path class="cls-1" d="M4.76,10.22.17,3.37A24,24,0,0,1,10.1.13a.78.78,0,0,1,.63,1.35A29.24,29.24,0,0,0,4.76,10.22Z"/>
+    <path class="cls-2" d="M.17,3.37A24,24,0,0,1,10.1.13a.78.78,0,0,1,.63,1.35,29.24,29.24,0,0,0-6,8.74"/>
+</svg>

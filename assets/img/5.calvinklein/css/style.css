@@ -1,0 +1,108 @@
+@charset "utf-8" ;
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+
+* { margin:0; padding:0; }
+ol,ul { list-style:none; }
+a { outline:0; text-decoration:none; color:#bbb; }
+img { border:0; }
+
+
+body { background:#262626; font-family:'Poiret One', cursive; }
+
+.header { width:470px; height:100%; background:#1a1a1a; position:fixed; font-size:12px; color:#111; }
+
+h1 { position:absolute; top:40%; right:20px; }
+.filter { overflow:hidden; position:absolute; top:50%; right:20px; }
+.filter li { float:left; }
+.filter li a { display:block; height:33px; background-repeat:no-repeat; background-position:0px 0px; text-indent:-9999px; }
+.filter li a:hover { background-position:0px -33px; }
+.menu1 { width:79px; background-image:url('../img/menu1.png'); }
+.menu2 { width:81px; background-image:url('../img/menu3.png'); }
+.menu3 { width:61px; background-image:url('../img/menu2.png'); }
+.menu4 { width:77px; background-image:url('../img/menu4.png'); }
+
+.container { margin-left:490px; padding-top:60px; padding-bottom:60px; overflow:hidden; }
+
+.box1 { width:624px; height:384px; padding:8px; float:left; }
+.box1 div { width:100%; height:100%; background:url('../img/box1.jpg') no-repeat 0px 0px; }
+.box1 div:hover { background-position:0px -400px; }
+
+.box2 { width:304px; height:384px; padding:8px; float:left; }
+.box2 div { width:264px; height:344px; padding:20px; background-color:#3b3b3b; text-align:right; transition:all 0.5s; }
+.box2 div > h2 { color:#eee; font-size:18px; }
+.box2 div > h3 { color:#bbb; font-size:14px; }
+.box2 div > p { color:#999; font-size:14px; margin-top:50px; }
+.box2 div:hover { background-color:#dd5417; color:#fff; }
+.box2 div:hover h2 { color:#fff; }
+.box2 div:hover h3 { color:#fff; }
+.box2 div:hover p { color:#fff; }
+
+.box3 { width:304px; height:184px; padding:8px; float:left; }
+.box3 div { width:100%; height:100%; background:url('../img/box3.jpg') no-repeat 0px 0px; }
+.box3 div:hover { background-position:0px -200px; }
+
+.box4 { width:264px; height:184px; padding:8px; float:left; }
+.box4 div { width:264px; height:144px; background-color:#222; background-image:url('../img/box4.png'); background-repeat:no-repeat; background-position:0px 0px; text-align:right; padding:20px; }
+.box4 div:hover { background-color:#dd5417; }
+.box4 div > h2 { color:#fff; font-size:18px; }
+
+.box5 { width:624px; height:184px; padding:8px; float:left; }
+.box5 div { width:100%; height:100%; background-color:#3b3b3b; background-image:url('../img/box5.png'); background-repeat:no-repeat; background-position:436px 20px; }
+.box5 div:hover { background-color:#dd5417; }
+		
+.box6 { width:304px; height:184px; padding:8px; float:left ; }
+.box6 div { width:100%; height:100%; background:url('../img/box6.jpg') no-repeat 0px 0px; }
+.box6 div:hover { background-position:0px -200px; }
+		
+.box7 { width:304px; height:184px; padding:8px; float:left ; }
+.box7 div { width:100%; height:100%; background:url('../img/box7.jpg') no-repeat 0px 0px; }
+.box7 div:hover { background-position:0px -200px; }
+
+.box8 { width:304px ; height:184px; padding:8px; float:left ; }
+.box8 div { width:100% ; height:100%; background:url('../img/box20.jpg') no-repeat 0px 0px; }
+.box8 div:hover { background-position:0px -200px; }
+
+.box9 { width:624px; height:184px; padding:8px; float:left; }
+.box9 div { width:100%; height:100%; background:url('../img/box9.jpg') no-repeat 0px 0px; }
+.box9 div:hover { background-position:0px -200px; }
+
+.box10 { width:304px; height:184px; padding:8px; float:left ; }
+.box10 div { width:100%; height:100%; background:url('../img/box11.jpg') no-repeat 0px 0px; }
+.box10 div:hover { background-position:0px -200px ; }
+
+.box11 { width:624px; height:384px; padding:8px; float:left; }
+.box11 div { width:100%; height:100%; background:url('../img/box12.jpg') no-repeat 0px 0px; }
+.box11 div:hover { background-position:0px -400px; }
+
+.box12 { width:304px ; height:184px; padding:8px; float:left ; }
+.box12 div { width:100% ; height:100%; background:url('../img/box13.jpg') no-repeat 0px 0px; }
+.box12 div:hover { background-position:0px -200px; }
+
+.box13 { width:304px ; height:184px; padding:8px; float:left ; }
+.box13 div { width:100% ; height:100%; background:url('../img/box14.jpg') no-repeat 0px 0px; }
+.box13 div:hover { background-position:0px -200px; }
+
+.box14 { width : 624px ; height : 384px ; padding : 8px ; float : left ; }
+.box14 div { width : 100% ; height : 100% ; background : url('../img/box17.jpg') no-repeat 0px 0px ; }
+.box14 div:hover { background-position : 0px -400px ; }
+
+.box15 { width:304px ; height:184px; padding:8px; float:left ; }
+.box15 div { width:100% ; height:100%; background:url('../img/box18.jpg') no-repeat 0px 0px; }
+.box15 div:hover { background-position:0px -200px; }
+
+.box16 { width:264px; height:184px; padding:8px; float:left; }
+.box16 div { width:264px; height:144px; background-color:#222; background-image:url('../img/box8.png'); background-repeat:no-repeat; background-position:0px 0px; text-align:right; padding:20px; }
+.box16 div:hover { background-color:#dd5417; }
+.box16 div > h2 { color:#fff; font-size:18px; }
+
+.box17 { width:304px ; height:184px; padding:8px; float:left ; }
+.box17 div { width:100% ; height:100%; background:url('../img/box27.jpg') no-repeat 0px 0px; }
+.box17 div:hover { background-position:0px -200px; }
+
+.box18 { width:304px ; height:184px; padding:8px; float:left ; }
+.box18 div { width:100% ; height:100%; background:url('../img/box28.jpg') no-repeat 0px 0px; }
+.box18 div:hover { background-position:0px -200px; }
+
+.box19 { width:624px; height:184px; padding:8px; float:left; }
+.box19 div { width:100%; height:100%; background:url('../img/box30.jpg') no-repeat 0px 0px; }
+.box19 div:hover { background-position:0px -200px; }
