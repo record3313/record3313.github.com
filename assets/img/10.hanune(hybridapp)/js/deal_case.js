@@ -154,6 +154,13 @@ function layerpopupOpen(target){
 			}
 		});
 
+	    /* roadview */
+	    $(".btn-roadview").bind("click",function(){
+	    	if( !$(".tab-anchor").children("li:eq(0)").hasClass("active") ){
+				$(".tab-anchor").children("li:eq(0)").toggleClass("active").siblings().removeClass("active")
+			}
+	    })
+
 		// $(".contents").on("scroll",function(){
 		// 	var scroll = $(this).scrollTop();
 		// 	var $cont01 = $("#cont01").offset().top;
@@ -245,13 +252,6 @@ function layerpopupOpen(target){
 		        $(this).toggleClass("active");
 		    });
 	    });
-
-	    /* roadview */
-	    // $(".btn-roadview").each(function(){
-	    // 	$(this).on("click",function(){
-	    // 		$(".roadview").toggleClass("active");
-	    // 	})
-	    // })
 
 		$(".switch.btn-control").each(function(){	
 	    	var $btn = $(this).find(".btn-switch");

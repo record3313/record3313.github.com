@@ -288,7 +288,9 @@ table.tbl-info tbody tr.info-data td:first-child{color:#f43b64;}
 
 .temp-control.ty02 .row{font-size:14px;font-weight:600;color:#111;border-bottom:.8px solid #ccc;}
 .temp-control.ty02{margin-bottom:20px;border-top:1.8px solid #111;}
-.temp-control.ty02 .row-range{height:70px;}
+.temp-control.ty02 .row-range{height:58px;}
+.temp-control.ty02 .row-range.half:nth-child(3),
+.temp-control.ty02 .row-range.half:nth-child(4){height:58px;}
 .temp-control.ty02 .row-range dl dt{display:inline-block;}
 .temp-control.ty02 .row-range dl dd{display:inline-block;margin-left:6px;}
 .temp-control.ty03 .row-range{height:56px;}
@@ -623,6 +625,7 @@ input[type="checkbox"].btn-switch:checked:after{left:calc(100% - 21px);}
 .btn-roadview .icon-roadview{width:20px;}
 a.btn-roadview .icon-roadview{margin:6px auto;}
 .btn-roadview:focus{outline:none;}
+
 .map-cont .btn-popup{
   width:24px;height:34px;text-indent:-9999px;position:absolute;top:25%;left:50%;transform:translate(-50%,-50%);z-index:2;color:#111 !important;
   background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png) no-repeat 0 0;
@@ -831,4 +834,7 @@ input[type="checkbox"]:checked.allck-button:not(:disabled):before{
   .btn-plus{margin:0 3px;}
   .temp-control .row-range .tag.primary{font-size:11px;}
   .temp-control.ty01 .row-label{font-size:13px;}
+  .btn-roadview{width:30px;height:30px;}
+  a.btn-roadview .icon-roadview{margin:5px auto;}
+  .btn-roadview .icon-roadview{width:14px;}
 }
