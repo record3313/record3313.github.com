@@ -181,6 +181,7 @@ td,th{line-height:1.3;word-wrap:break-word;word-break:keep-all;}
   -webkit-box-flex:none;-moz-box-flex:none;-webkit-flex:none;-ms-flex:none;flex:none;
   margin-bottom:0;
 }
+.wrap .location-data .lay-inner{position:relative;}
 .wrap .tab-anchor{
   display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;
   -webkit-box-flex:none;-moz-box-flex:none;-webkit-flex:none;-ms-flex:none;flex:none;
@@ -222,7 +223,7 @@ td,th{line-height:1.3;word-wrap:break-word;word-break:keep-all;}
 .location-data .data-info{padding-top:4px;}
 .location-data .data-info span{font-size:13px;color:#111;font-weight:600;letter-spacing:-0.04em;} 
 .location-data .data-info span+span:before{content:'';display:inline-block;width:1px;height:10px;margin:0 7px 0 8px;vertical-align:middle;background:#ccc;}
-.location-data .line{display:block;width:calc(100% - 24px);height:2px;margin:0 12px;position:absolute;top:70px;left:0;background:#111;border:none;}/* 좌우여백 */
+.location-data .line{display:block;width:100%;height:2px;position:absolute;top:50px;left:0;background:#111;border:none;}/* 좌우여백 */
 
 /* tab */ 
 .tab-anchor{margin:14px 0 0;padding:6px 12px;font-size:0;background:#fff;}/* 좌우여백 */
@@ -615,6 +616,13 @@ input[type="checkbox"].btn-switch:checked:after{left:calc(100% - 21px);}
 }
 .map .map-api{background:#f3f0e9;position:relative;}
 .roadview{background:#f3f0e9;}
+.btn-roadview{
+  width:40px;height:40px;position:absolute;top:0;right:0;background-color:#f89828;
+  -webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
+}
+.btn-roadview .icon-roadview{width:20px;}
+a.btn-roadview .icon-roadview{margin:6px auto;}
+.btn-roadview:focus{outline:none;}
 .map-cont .btn-popup{
   width:24px;height:34px;text-indent:-9999px;position:absolute;top:25%;left:50%;transform:translate(-50%,-50%);z-index:2;color:#111 !important;
   background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png) no-repeat 0 0;

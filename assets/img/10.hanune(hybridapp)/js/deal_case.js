@@ -246,6 +246,13 @@ function layerpopupOpen(target){
 		    });
 	    });
 
+	    /* roadview */
+	    // $(".btn-roadview").each(function(){
+	    // 	$(this).on("click",function(){
+	    // 		$(".roadview").toggleClass("active");
+	    // 	})
+	    // })
+
 		$(".switch.btn-control").each(function(){	
 	    	var $btn = $(this).find(".btn-switch");
 	    	var $txt = $btn.closest("label").siblings(".switch-txt").children();
