@@ -27,23 +27,6 @@
 	<script src="js/deal_case.js"></script>
 	<!-- new js 20200405 -->
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-	
-	<style>
-	html, body {width:100%;height:100%;margin:0;padding:0;} 
-.radius_border{border:1px solid #919191;border-radius:5px;}     
-.custom_typecontrol {position:absolute;top:30px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
-.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
-.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}
-.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
-.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}
-.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
-.custom_typecontrol .selected_btn:hover {color:#fff;}
-
-.custom_zoomcontrol {position:absolute;top:260px;right:10px;width:40px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;}
-.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}
-.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}
-.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}       
-	</style>
 </head>
 <body>
 
@@ -95,69 +78,63 @@
 		        <li><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">지목</button></h3></li>
 		    </ul>
 			
-				<div class="map-cont">
+			<div class="map-cont">
 				<div class="noti top">
 					<p>[ 지도중심 : <span class="fc-primary">서울 강남구 역삼동 804</span> ]</p>
 				<!--div id="dis" align="center"><span>[ 지도중심 : <span id="map_center_addr_str" style="color:red"></span>]</span></div-->
 				</div>
 				<!-- daum map -->
 				<div class="map-api">
-				
-				<div id="map" style="width:100%;height:calc(100vh - 102px)"></div>
-				<div class="custom_typecontrol radius_border">
-				<span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
-				<span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
-				</div>
-				<!-- 지도 확대, 축소 컨트롤 div 입니다 -->
-				<div class="custom_zoomcontrol radius_border"> 
-					<span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
-					<span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
-				</div>
-	
-				<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8f24008612fad769804cab77fb01be2d&libraries=services,clusterer,drawing"></script>	
-				<script>
-				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-				mapOption = { 
-					center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-					level: 3 // 지도의 확대 레벨
-				};  
+					<div id="map" style="width:100%;height:calc(100vh - 102px)"></div>
+					<div class="custom_typecontrol radius_border">
+					<span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+					<span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+					</div>
+					<!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+					<div class="custom_zoomcontrol radius_border"> 
+						<span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+						<span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+					</div>
+		
+					<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8f24008612fad769804cab77fb01be2d&libraries=services,clusterer,drawing"></script>	
+					<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					mapOption = { 
+						center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+						level: 3 // 지도의 확대 레벨
+					};  
 
-				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+					var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-				// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
-				function setMapType(maptype) { 
-				var roadmapControl = document.getElementById('btnRoadmap');
-				var skyviewControl = document.getElementById('btnSkyview'); 
-				if (maptype === 'roadmap') {
-					map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
-					roadmapControl.className = 'selected_btn';
-					skyviewControl.className = 'btn';
-				} else {
-					map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
-					skyviewControl.className = 'selected_btn';
-					roadmapControl.className = 'btn';
-				}
-				}
-
-				// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-				function zoomIn() {
-				map.setLevel(map.getLevel() - 1);
-				}
-
-				// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
-				function zoomOut() {
-				map.setLevel(map.getLevel() + 1);
-				}
-				</script>
-				
+					// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+					function setMapType(maptype) { 
+					var roadmapControl = document.getElementById('btnRoadmap');
+					var skyviewControl = document.getElementById('btnSkyview'); 
+					if (maptype === 'roadmap') {
+						map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+						roadmapControl.className = 'selected_btn';
+						skyviewControl.className = 'btn';
+					} else {
+						map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+						skyviewControl.className = 'selected_btn';
+						roadmapControl.className = 'btn';
+					}
+					}
+					// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+					function zoomIn() {
+					map.setLevel(map.getLevel() - 1);
+					}
+					// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+					function zoomOut() {
+					map.setLevel(map.getLevel() + 1);
+					}
+					</script>
 				</div><!-- //daum map -->
 				<button type="button" class="btn-popup" onclick="layerpopupOpen('aside')" style="font-size:50px;color:#b2b1af;">팝업 열기</button>
 				<div class="noti bottom">
 					<p>본 자료는 법적 책임이 발생하지 않습니다.</p>
 				</div>
 			</div>
-		
-		
 		</div><!-- //map -->
 		<!-- aside -->
 		<div class="aside popup scroll-y">
@@ -217,34 +194,6 @@
 			<div class="lay-inner">
 	    		<!-- cont01 -->
 	    		<div id="cont01" class="tab-cont">
-	    			<!--div class="temp-table">
-		    			<h3>토지정보</h3>
-		    			<table class="tbl-th">
-		                <caption>토지정보 - 지목,면적,공시지가(㎡),소유(인원)에 대한 표 입니다.</caption>
-		                <colgroup>
-			                <col style="width:20%;">
-			                <col style="width:25%;">
-			                <col style="width:;">
-			                <col style="width:;">
-		                </colgroup>
-		                <thead>
-							<tr>
-								<th scope="col">지목</th>
-								<th scope="col">면적</th>
-								<th scope="col">공시지가(㎡)</th>
-								<th scope="col">소유(인원)</th>
-							</tr>
-		                </thead>
-		                <tbody>
-							<tr>
-								<td>대</td>
-								<td class="fc-primary">150<span>㎡</span></td>
-								<td>2,198,000<span>원</span></td>
-								<td>개인(3)</td>
-							</tr>
-		                </tbody>
-		            	</table>
-		            </div-->
 					<div class="temp temp-table">
 		    			<h3>토지소유정보</h3>
 		                <table class="tbl-th">
