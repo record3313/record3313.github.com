@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<!--
+*   @Version    : 0.1
+*   @Name       : deal_case.html
+*   @page       : 거래사례열람
+*   @Writer     : 2020-03-30 Doeon_Kim
+* - - - - - - - - - - - - - - - - - - -
+*   @update     : 2020-03-30 최초작성
+* - - - - - - - - - - - - - - - - - - -
+-->
+
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+	<meta content="telephone=no" name="format-detection" />	
+	<title>한눈에-거래사례열람</title>
+	<!-- new css 20200314 -->
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/deal_case.css">
+	<!--  new css 20200405 -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.css">
+	<!-- new js 20200314 -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<script src="js/deal_case.js"></script>
+	<!-- new js 20200405 -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+	
+	<style>
+	html, body {width:100%;height:100%;margin:0;padding:0;} 
+.radius_border{border:1px solid #919191;border-radius:5px;}     
+.custom_typecontrol {position:absolute;top:30px;right:10px;overflow:hidden;width:130px;height:30px;margin:0;padding:0;z-index:1;font-size:12px;font-family:'Malgun Gothic', '맑은 고딕', sans-serif;}
+.custom_typecontrol span {display:block;width:65px;height:30px;float:left;text-align:center;line-height:30px;cursor:pointer;}
+.custom_typecontrol .btn {background:#fff;background:linear-gradient(#fff,  #e6e6e6);}
+.custom_typecontrol .btn:hover {background:#f5f5f5;background:linear-gradient(#f5f5f5,#e3e3e3);}
+.custom_typecontrol .btn:active {background:#e6e6e6;background:linear-gradient(#e6e6e6, #fff);}
+.custom_typecontrol .selected_btn {color:#fff;background:#425470;background:linear-gradient(#425470, #5b6d8a);}
+.custom_typecontrol .selected_btn:hover {color:#fff;}
+
+.custom_zoomcontrol {position:absolute;top:260px;right:10px;width:40px;height:80px;overflow:hidden;z-index:1;background-color:#f5f5f5;}
+.custom_zoomcontrol span {display:block;width:36px;height:40px;text-align:center;cursor:pointer;}
+.custom_zoomcontrol span img {width:15px;height:15px;padding:12px 0;border:none;}
+.custom_zoomcontrol span:first-child{border-bottom:1px solid #bfbfbf;}       
+	</style>
+</head>
+<body>
+
+<!-- wrap -->
+<div class="wrap">
+    <!-- header -->
+	<div class="header clearfix">
+		<a href="" class="btn btn-prev">
+			<!-- <img src="img/btn-prev.png" alt="이전 페이지로 가기 아이콘"> -->
+			<svg class="icon icon-prev" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M7.854 4.646a.5.5 0 010 .708L5.207 8l2.647 2.646a.5.5 0 01-.708.708l-3-3a.5.5 0 010-.708l3-3a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+				<path fill-rule="evenodd" d="M4.5 8a.5.5 0 01.5-.5h6.5a.5.5 0 010 1H5a.5.5 0 01-.5-.5z" clip-rule="evenodd"></path>
+			</svg>
+			<span class="invisible">이전 페이지로 가기</span>
+		</a>
+		<div class="page-tit">
+			<h2>거래사례열람</h2>
+		</div>
+		<button type="button" class="btn btn-menu">
+			<!-- <img src="img/btn-menu.png" alt="메뉴보기 아이콘"> -->
+			<svg class="icon icon-menu" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  				<path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm0-5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm0-5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" clip-rule="evenodd"/>
+			</svg>
+			<span class="invisible">메뉴보기</span>
+		</button>
+	</div><!-- //header -->
+	<!-- container -->
+    <div class="container">
+    	<!-- map -->
+	    <div class="map">
+			<!-- search -->
+			<div class="search">
+				<div class="search-bar">
+					<label>
+						<input type="search" class="input-search" placeholder="검색 내용을 입력해주세요.">
+						<span class="invisible">거래사례 검색</span>
+					</label>
+					<button type="button" class="btn btn-default primary"><span>검색</span></button>
+				</div>
+			</div>
+			<!-- //search -->
+			<div class="map-menu"><button type="button" class="btn btn-filter btn-popup" onclick="layerpopupOpen('default')"><span class="invisible">전체메뉴</span></button></div>
+			<ul class="tab-button scroll-x">
+		        <li><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">유형</button></h3></li>
+		        <li><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">거래연도<span class="count">2</span></button></h3></li>
+		        <li class="active"><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">용도지역</button></h3></li>
+		        <li><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">도로</button></h3></li>
+		        <li><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">준공연도</button></h3></li>
+		        <li><h3><button type="button" class="btn btn-popup" onclick="layerpopupOpen('default')">지목</button></h3></li>
+		    </ul>
+			
+				<div class="map-cont">
+				<div class="noti top">
+					<p>[ 지도중심 : <span class="fc-primary">서울 강남구 역삼동 804</span> ]</p>
+				<!--div id="dis" align="center"><span>[ 지도중심 : <span id="map_center_addr_str" style="color:red"></span>]</span></div-->
+				</div>
+				<!-- daum map -->
+				<div class="map-api">
+				
+				<div id="map" style="width:100%;height:calc(100vh - 102px)"></div>
+				<div class="custom_typecontrol radius_border">
+				<span id="btnRoadmap" class="selected_btn" onclick="setMapType('roadmap')">지도</span>
+				<span id="btnSkyview" class="btn" onclick="setMapType('skyview')">스카이뷰</span>
+				</div>
+				<!-- 지도 확대, 축소 컨트롤 div 입니다 -->
+				<div class="custom_zoomcontrol radius_border"> 
+					<span onclick="zoomIn()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_plus.png" alt="확대"></span>  
+					<span onclick="zoomOut()"><img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/ico_minus.png" alt="축소"></span>
+				</div>
+	
+				<script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=8f24008612fad769804cab77fb01be2d&libraries=services,clusterer,drawing"></script>	
+				<script>
+				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+				mapOption = { 
+					center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+					level: 3 // 지도의 확대 레벨
+				};  
+
+				var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+				// 지도타입 컨트롤의 지도 또는 스카이뷰 버튼을 클릭하면 호출되어 지도타입을 바꾸는 함수입니다
+				function setMapType(maptype) { 
+				var roadmapControl = document.getElementById('btnRoadmap');
+				var skyviewControl = document.getElementById('btnSkyview'); 
+				if (maptype === 'roadmap') {
+					map.setMapTypeId(kakao.maps.MapTypeId.ROADMAP);    
+					roadmapControl.className = 'selected_btn';
+					skyviewControl.className = 'btn';
+				} else {
+					map.setMapTypeId(kakao.maps.MapTypeId.HYBRID);    
+					skyviewControl.className = 'selected_btn';
+					roadmapControl.className = 'btn';
+				}
+				}
+
+				// 지도 확대, 축소 컨트롤에서 확대 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+				function zoomIn() {
+				map.setLevel(map.getLevel() - 1);
+				}
+
+				// 지도 확대, 축소 컨트롤에서 축소 버튼을 누르면 호출되어 지도를 확대하는 함수입니다
+				function zoomOut() {
+				map.setLevel(map.getLevel() + 1);
+				}
+				</script>
+				
+				</div><!-- //daum map -->
+				<button type="button" class="btn-popup" onclick="layerpopupOpen('aside')" style="font-size:50px;color:#b2b1af;">팝업 열기</button>
+				<div class="noti bottom">
+					<p>본 자료는 법적 책임이 발생하지 않습니다.</p>
+				</div>
+			</div>
+		
+		
+		</div><!-- //map -->
+		<!-- aside -->
+		<div class="aside popup scroll-y">
+			<!-- location -->
+			<div class="location">
+			<div class="lay-inner">
+				<p class="addr-first">부산광역시 해운대구 중동 1085-4</p>
+				<p class="addr-last">해운대구 달맞이길 62번길</p>
+				<button type="button" class="btn btn-x">
+					<!-- <img src="img/btn-close-circle.png" alt="주소 닫기 아이콘"> -->
+					<svg class="icon icon-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"></path>
+						<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+						<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"></path>
+					</svg>
+					<span class="invisible">주소 닫기</span>
+				</button>
+			</div>
+			</div><!-- //location -->
+			<!-- location-data -->
+			<div class="location-data">
+			<div class="lay-inner">
+				<div class="data-build">
+					<p>한준빌딩</p>
+					<div class="tooltip">
+						<button type="button" class="btn btn-tooltip">
+							<span class="invisible">안내</span>
+						</button>
+						<div class="tooltip-pop">
+							<strong class="tit">한준빌딩 안내 제목</strong>
+							<div>안내 메세지를 입력해주세요.안내 메세지를 입력해주세요.안내 메세지를 입력해주세요.안내 메세지를 입력해주세요.안내 메세지를 입력해주세요.</div>
+						</div>
+					</div>
+					<span class="tag gray">일반상업지역</span><span class="tag gray">임야</span><span class="tag gray">개인(3)</span>
+				</div>
+				<p class="data-info">
+					<span>대지 121.91평</span>
+					<span>연 682.71평</span>
+					<span>1082년</span>
+					<span>6F/B1</span>
+				</p>
+				<hr class="line">
+			</div>
+			</div><!-- //location-data -->
+			<!-- tab-anchor -->
+			<ul class="tab-anchor">
+		        <li class="active"><a href="#cont01">토지</a></li>
+		        <li><a href="#cont02">건물</a></li>
+		        <li><a href="#cont03">통계</a></li>
+		        <li><a href="#cont04">계산</a></li>
+		        <li><a href="#cont05">결과</a></li>
+		        <li><a href="#cont06">시세</a></li>
+		    </ul><!-- //tab-anchor -->
+			<!-- contents -->
+			<div class="contents scroll-y">
+			<!-- lay-inner(tab-cont) -->
+			<div class="lay-inner">
+	    		<!-- cont01 -->
+	    		<div id="cont01" class="tab-cont">
+	    			<!--div class="temp-table">
+		    			<h3>토지정보</h3>
+		    			<table class="tbl-th">
+		                <caption>토지정보 - 지목,면적,공시지가(㎡),소유(인원)에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:20%;">
+			                <col style="width:25%;">
+			                <col style="width:;">
+			                <col style="width:;">
+		                </colgroup>
+		                <thead>
+							<tr>
+								<th scope="col">지목</th>
+								<th scope="col">면적</th>
+								<th scope="col">공시지가(㎡)</th>
+								<th scope="col">소유(인원)</th>
+							</tr>
+		                </thead>
+		                <tbody>
+							<tr>
+								<td>대</td>
+								<td class="fc-primary">150<span>㎡</span></td>
+								<td>2,198,000<span>원</span></td>
+								<td>개인(3)</td>
+							</tr>
+		                </tbody>
+		            	</table>
+		            </div-->
+					<div class="temp temp-table">
+		    			<h3>토지소유정보</h3>
+		                <table class="tbl-th">
+		                <caption>토지정보2 - 구분,소유자주소,변동원인,변동일자에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:20%;">
+			                <col style="width:25%;">
+			                <col style="width:;">
+			                <col style="width:;">
+		                </colgroup>
+		                <thead>
+							<tr>
+								<th scope="col">구분</th>
+								<th scope="col">소유자주소</th>
+								<th scope="col">변동원인</th>
+								<th scope="col">변동일자</th>
+							</tr>
+		                </thead>
+		                <tbody>
+							<tr>
+								<td class="fc-primary">50<span>㎡</span></td>
+								<td>관외(인천)</td>
+								<td>소유권이전</td>
+								<td>2018-02-05</td>
+							</tr>
+							<tr>
+								<td class="fc-primary">50<span>㎡</span></td>
+								<td>읍면동내</td>
+								<td>소유권이전</td>
+								<td>2018-02-05</td>
+							</tr>
+							
+		                </tbody>
+		              	</table>
+		            </div>
+					
+					<div class="temp temp-table">
+		    			<h3>토지이용상황</h3>
+		              	<table class="tbl-th">
+		                <caption>토지정보3 - 용도지역,이용상황,도로접면,지형형상(높이)에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:;">
+			                <col style="width:;">
+			                <col style="width:;">
+			                <col style="width:;">
+		                </colgroup>
+		                <thead>
+							<tr>
+								
+								<th scope="col">이용상황</th>
+								<th scope="col">도로접면</th>
+								<th scope="col">지형형상</th>
+								<th scope="col">지형높이</th>
+							</tr>
+		                </thead>
+		                <tbody>
+		                	<tr>
+								
+								<td>주상용</td>
+								<td>소로한면</td>
+								<td>사다리형</td>
+								<td>완경사</td>
+							</tr>
+		                </tbody>
+		              	</table>
+		            </div>
+					<div class="temp temp-chart">
+	    				<h4>공시지가 및 증감율</h4>
+	    				<div class="chart-type">
+	    					<div class="tr">
+	    						<span class="type-darkblue">증감율(%)</span><span class="type-primary">공시지가(만)</span>
+	    					</div>
+	    				</div>
+	    				<div class="chart-graph">
+	    					<div class="graph"></div>
+	    				</div>
+		            </div>
+		           
+					
+	    			
+	    			
+		            <div class="temp temp-table">
+		    			<h3>건축 인허가 정보</h3>
+		    			<table class="tbl-th">
+		                <caption>건축 인허가 정보 - 건물명,건축구분,용도,건축허가일에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:;">
+			                <col style="width:;">
+			                <col style="width:;">
+			                <col style="width:;">
+		                </colgroup>
+		                <thead>
+							<tr>
+								<th scope="col">건물명</th>
+								<th scope="col">건축구분</th>
+								<th scope="col">용도</th>
+								<th scope="col">건축허가일</th>
+							</tr>
+		                </thead>
+		                <tbody>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+		                </tbody>
+		               	</table>
+		            </div>
+	    		</div><!--//cont01 -->
+				<!-- cont02 -->
+	    		<div id="cont02" class="tab-cont">
+	    			<div class="temp temp-table">
+		    			<h3>동정보</h3>
+		    			<table class="tbl-th tbl-stripe">
+		                <caption>동정보 - 동명칭,주용도,연면적에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:20%;">
+			                <col style="width:;">
+			                <col style="width:;">
+		                </colgroup>
+		                <thead>
+							<tr>
+								<th scope="col">동명칭</th>
+								<th scope="col">주용도</th>
+								<th scope="col">연면적</th>
+							</tr>
+		                </thead>
+		                <tbody>
+							<tr>
+								<td>A</td>
+								<td>주택</td>
+								<td class="fc-primary">51.24<span>㎡</span></td>
+							</tr>
+							<tr>
+								<td>B</td>
+								<td>제2종근린생활,주택</td>
+								<td class="fc-primary">49.59<span>㎡</span></td>
+							</tr>
+							<tr>
+								<td>C</td>
+								<td>제1종근린생활</td>
+								<td class="fc-primary">26.13<span>㎡</span></td>
+							</tr>
+		                </tbody>
+		            	</table>
+		            </div>
+		            <div class="temp temp-table">
+		    			<h3>건물정보A</h3>
+		    			<table class="tbl-td">
+		                <caption>건물정보A - 건물이름,주구조,대지면적,외필지수,건축면적,건폐율,연면적,용적율,세대수,가구수,호수(호),층수,E/V,비상 E/V,허가일,준공일,옥내기계,옥외기계,옥내자주,옥외자주에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:20%;">
+			                <col style="width:30%;">
+			                <col style="width:20%;">
+			                <col style="width:;">
+		                </colgroup>
+		                <tbody>
+							<tr>
+								<th scope="row">건물이름</th>
+								<td></td>
+								<th scope="row">주구조</th>
+								<td>블록구조</td>
+							</tr>
+							<tr>
+								<th scope="row">대지면적</th>
+								<td>0.00<span>㎡</span></td>
+								<th scope="row">외필지수</th>
+								<td>0</td>
+							</tr>
+							<tr>
+								<th scope="row">건축면적</th>
+								<td>51.24<span>㎡</span></td>
+								<th scope="row">건폐율</th>
+								<td>0<span>%</span></td>
+							</tr>
+							<tr>
+								<th scope="row">연면적</th>
+								<td>51.24<span>㎡</span></td>
+								<th scope="row">용적율</th>
+								<td>0<span>%</span></td>
+							</tr>
+							<tr>
+								<th scope="row">세대수</th>
+								<td>0</td>
+								<th scope="row">가구수</th>
+								<td>0</td>
+							</tr>
+							<tr>
+								<th scope="row">호수(호)</th>
+								<td>0</td>
+								<th scope="row">층수</th>
+								<td><span>지하</span>0<span class="space1">지상</span>1</td>
+							</tr>
+							<tr>
+								<th scope="row">E/V</th>
+								<td>0<span>대</span></td>
+								<th scope="row">비상 E/V</th>
+								<td>0<span>대</span></td>
+							</tr>
+							<tr>
+								<th scope="row">허가일</th>
+								<td></td>
+								<th scope="row">준공일</th>
+								<td>19701120</td>
+							</tr>
+							<tr>
+								<th scope="row">옥내기계</th>
+								<td>0</td>
+								<th scope="row">옥외기계</th>
+								<td>0</td>
+							</tr>
+							<tr>
+								<th scope="row">옥내자주</th>
+								<td>0</td>
+								<th scope="row">옥외자주</th>
+								<td>0</td>
+							</tr>
+		                </tbody>
+		            	</table>
+		            </div>
+	    		</div><!--//cont02 -->
+	    		<!-- cont03 -->
+	    		<div id="cont03" class="tab-cont">
+	    			
+		            <div class="temp temp-chart">
+	    				<h4>용도지역별 평당가격</h4>
+	    				<div class="chart-type">
+	    					<div class="tr">
+	    						<span class="type-primary">2종일반</span><span class="type-darkblue">일반상업</span><span class="type-blue">준주거</span>
+	    					</div>
+	    					
+	    				</div>
+	    				<div class="chart-graph">
+	    					<div class="graph"></div>
+	    				</div>
+		            </div>
+					<div class="temp temp-chart">
+	    				<h4>거래량 및 거래금액</h4>
+	    				<div class="chart-type">
+	    					<div class="tr">
+	    						<span class="type-primary">토지</span><span class="type-darkblue">단독/다가구</span><span class="type-blue">상가</span>
+	    					</div>
+	    					<div class="tr">
+	    						<span class="type-brown">거래금액</span><span class="type-gray"></span><span class="type-skyblue"></span>
+	    					</div>
+	    				</div>
+	    				<div class="chart-graph">
+	    					<div class="graph"></div>
+	    				</div>
+		            </div>
+	    		</div><!--//cont03 -->
+	    		<!-- cont04 -->
+	    		<div id="cont04" class="tab-cont">
+	    			<!-- 설정 조건 -->
+	    			<div class="temp temp-control ty01">
+	    				<div class="row row-label">
+	    					<label>
+								<input type="radio" name="remodeling" class="ck-round" checked>
+								리모델링한건물
+							</label>
+							<label>
+								<input type="radio" name="remodeling" class="ck-round">
+								리모델링검토
+							</label>
+							<label>
+								<input type="radio" name="remodeling" class="ck-round">
+								신축검토
+							</label>
+	    				</div>
+	    				<div class="accordion">
+		    				<div class="row row-result accordion-head">
+		    					<dl>
+		    						<dt class="icon icon-result">총사업비</dt>
+		    						<dd>12.4<span>억</span></dd>
+		    					</dl>
+		    					<button type="button" title="상세내용 보기" class="btn btn-accordion">
+		    						<img src="img/btn-accordion.png" class="icon icon-accordion" alt="상세내용 보기 아이콘">
+		    					</button>
+		    				</div>
+		    				<div class="accordion-cont">
+		    					<div class="row row-range half bg-tertiary">
+									<dl class="row2">
+										<dt><span class="tag primary">토지</span></dt>
+										<dd>2,680<span>만/(</spanm>3.69<span>)</span></dd>
+									</dl>
+									<div class="control ty01">
+										<label class="range">
+											<span class="bar-range"><em class="fill"></em></span>
+											<input type="range" value="60" min="0" max="100" class="input-range">
+											<span class="invisible">토지 범위 설정하기</span>
+										</label>
+									</div>
+									<div class="row2">12.2<span>억</span></div>
+			    				</div>
+			    				<div class="row row-range half bg-tertiary">
+			    					<dl class="row2">
+										<dt><span class="tag primary">건축</span></dt>
+										<dd>70<span>만/평</span></dd>
+									</dl>
+									<div class="control ty02">
+										<label class="range">
+											<span class="bar-range"><em class="fill"></em></span>
+											<input type="range" value="23" min="0" max="100" class="input-range">
+											<span class="invisible">건축 범위 설정하기</span>
+										</label>
+									</div>
+									<div class="row2"><span>2,170만</span></div>
+			    				</div>
+			    				<div class="row row-range half">
+			    					<dl>
+										<dt><span class="tag primary">대출</span></dt>
+										<dd>6<span>%/</span>7,430<span>만</span></dd>
+									</dl>
+									<div class="control ty03">
+										<label class="range">
+											<span class="bar-range"><em class="fill"></em></span>
+											<input type="range" value="29" min="0" max="100" class="input-range">
+											<span class="invisible">대출 범위 설정하기</span>
+										</label>
+									</div>
+									<div class="row2"><span>2,170만</span></div>
+			    				</div>
+			    				<div class="row row-range half">
+			    					<dl>
+										<dt><span class="tag primary">금리</span></dt>
+										<dd>4.4<span>% / 월</span>309<span>만</span></dd>
+									</dl>
+									<div class="control ty04">
+										<label class="range">
+											<span class="bar-range"><em class="fill"></em></span>
+											<input type="range" value="50" min="0" max="100" class="input-range">
+											<span class="invisible">금리 범위 설정하기</span>
+										</label>
+									</div>
+									<div class="row2"><span>170만</span></div>
+			    				</div>
+			    				<div class="row row-range half bg-tertiary">
+			    					<dl>
+										<dt><span class="tag primary">보증금</span></dt>
+										<dd>10<span>%/</span>4000<span>만</span></dd>
+									</dl>
+									<div class="control ty05">
+										<label class="range">
+											<span class="bar-range"><em class="fill"></em></span>
+											<input type="range" value="32" min="0" max="100" class="input-range">
+											<span class="invisible">보증금 범위 설정하기</span>
+										</label>
+									</div>
+									<div class="row2"><span>50만</span></div>
+			    				</div>
+			    				<div class="row row-range half bg-tertiary">
+			    					<dl>
+										<dt><span class="tag primary">수익률</span></dt>
+										<dd>6<span>%/</span>270<span>만</span></dd>
+									</dl>
+									<div class="control ty05">
+										<label class="range">
+											<span class="bar-range"><em class="fill"></em></span>
+											<input type="range" value="44" min="0" max="100" class="input-range">
+											<span class="invisible">수익률 범위 설정하기</span>
+										</label>
+									</div>
+									<div class="row2"><span>370만</span></div>
+			    				</div>
+		    				</div>
+	    				</div><!-- accordion -->
+	    				<div class="row row-result-sub">
+	    					<dl>
+	    						<dt>실투자금</dt>
+	    						<dd>4.2<span>억</span></dd>
+	    					</dl>
+	    				</div>
+	    				<div class="row row-result-sub">
+	    					<dl>
+	    						<dt>순월세</dt>
+	    						<dd>154<span>만</span></dd>
+	    					</dl>
+	    				</div>
+	    				<div class="row row-btn">
+							<div class="switch btn-control">
+								<label><input type="checkbox" class="btn btn-switch"><span class="invisible">스위치 버튼</span></label>
+								<div class="switch-txt">
+									<span class="fc-primary">평당</span><span class="active">전체</span>
+								</div>
+							</div>
+							<div class="btn-add">
+								<span>지상</span>
+								<button type="button" class="btn btn-plus" title="지상 추가하기"></button>
+								<button type="button" class="btn btn-minus" title="지상 삭제하기"></button>
+							</div>
+							<div class="btn-add">
+								<span>지하</span>
+								<button type="button" class="btn btn-plus" title="지하 추가하기"></button>
+								<button type="button" class="btn btn-minus" title="지하 삭제하기"></button>
+							</div>
+							<button type="button" class="btn btn-default btn-setting btn-popup" onclick="layerpopupOpen('fullpopup')"><span>설정</span></button>
+	    				</div>
+					</div><!-- //설정 조건 -->
+	    			<!-- 설정 결과 -->
+	    			<div class="temp temp-table mgt-20">
+		    			<table class="tbl-th">
+		                <caption>비율,층수,면적,보증금(평당),월세(평당),분할에 대한 표입니다.</caption>
+		                <colgroup>
+			                <col style="width:19%;">
+			                <col style="width:9%;">
+			                <col style="width:;">
+			                <col style="width:;">
+			                <col style="width:;">
+			                <col style="width:10%;">
+		                </colgroup>
+		                <thead>
+							<tr>
+								<th scope="col">비율</th>
+								<th scope="col">층</th>
+								<th scope="col">면적(평)</th>
+								<th scope="col" class="th-point">보증금<br><span class="switch-data">(평당)</span></th>
+								<th scope="col" class="th-point">월세<br><span class="switch-data">(평당)</span></th>
+								<th scope="col">분할</th>
+							</tr>
+		                </thead>
+		                <tbody>
+							<tr>
+								<td class="lay-m">
+									<input type="checkbox" title="목록선택하기" checked>
+									<label class="wid-fix">40<span>%</span></label>
+								</td>
+								<td>2<span>F</span></td>
+								<td>51.2<span>(</span>115<span>)</span></td>
+								<td class="td-point">
+									2,123<em>만</em><br>
+									<span class="switch-data"><em>(</em>137<em>만)</em></span>
+								</td>
+								<td class="td-point">
+									88<em>만</em><br>
+									<span class="switch-data"><em>(</em>5.7<em>만)</em></span>
+								</td>
+								<td>
+									<button type="button" class="btn btn-division active"><span class="invisible">분할하기</span></button>
+								</td>
+							</tr>
+							<tr>
+								<td class="lay-m">
+									<input type="checkbox" title="목록선택하기">
+									<label class="wid-fix">100<span>%</span></label>
+								</td>
+								<td>1<span>F</span></td>
+								<td>51.2<span>(</span>115<span>)</span></td>
+								<td class="td-point">
+									5,307<em>만</em><br>
+									<span class="switch-data"><em>(</em>342<em>만)</em></span>
+								</td>
+								<td class="td-point">
+									221<em>만</em><br>
+									<span class="switch-data"><em>(</em>14<em>만)</em></span>
+								</td>
+
+								<td>
+									<button type="button" class="btn btn-division"><span class="invisible">분할하기</span></button>
+								</td>
+							</tr>
+		                </tbody>
+		            	</table>
+		            </div><!-- //설정 결과 -->
+	    		</div><!--//cont04 -->
+	    		<!-- cont05 -->
+	    		<div id="cont05" class="tab-cont">
+    				<h3>결과</h3>
+    				<div class="temp temp-control ty02">
+	    				<div class="row row-range half bg-tertiary">
+	    					<input type="checkbox" title="목록선택하기"><span class="pdl3"></span>
+	    					<label>매수자직접사용</label>
+	    				</div>
+	    				<div class="row row-range half inline bg-tertiary">
+	    					<dl>
+	    						<dt class="fc-primary">시작환원율</dt>
+	    						<dd>4.85<span>%</span></dd>
+	    					</dl>
+							<div class="control ty02">
+								<label class="range">
+									<span class="bar-range"><em class="fill"></em></span>
+									<input type="range" value="87" min="0" max="100" class="input-range">
+									<span class="invisible">금리 범위 설정하기</span>
+								</label>
+							</div>
+	    				</div>
+	    				<div class="row row-range half inline bg-tertiary">
+	    					<dl>
+	    						<dt class="fc-primary">보유기간</dt>
+	    						<dd>12<span>개월</span></dd>
+	    					</dl>
+							<div class="control ty01">
+								<label class="range">
+									<span class="bar-range"><em class="fill"></em></span>
+									<input type="range" value="44" min="0" max="100" class="input-range">
+									<span class="invisible">금리 범위 설정하기</span>
+								</label>
+							</div>
+	    				</div>
+	    				<div class="row row-range half inline bg-tertiary">
+	    					<dl>
+	    						<dt class="fc-primary">공실기간</dt>
+	    						<dd>6<span>개월</span></dd>
+	    					</dl>
+							<div class="control ty05">
+								<label class="range">
+									<span class="bar-range"><em class="fill"></em></span>
+									<input type="range" value="32" min="0" max="100" class="input-range">
+									<span class="invisible">금리 범위 설정하기</span>
+								</label>
+							</div>
+	    				</div>
+					</div><!-- //설정 조건 -->
+					<!-- 설정 결과 -->
+	    			<div class="temp temp-table">
+	    				<h3>결과 상세내용</h3>
+		    			<table class="tbl-td align-l-td">
+		                <caption>매각금액,매입금액,매각차익,임대소득,소득합계,공실이자,실투자금,총수익율,년수익율에 대한 표 입니다.</caption>
+		                <colgroup>
+			                <col style="width:24%;">
+			                <col style="width:;">
+			                <col style="width:24%;">
+			                <col style="width:;">
+		                </colgroup>
+		                <tbody>
+							<tr>
+								<th scope="row">매각금액</th>
+								<td colspan="3">2.1<span>억</span></td>
+							</tr>
+							<tr>
+								<th scope="row">매입금액</th>
+								<td colspan="3">-2.1<span>억</span></td>
+							</tr>
+							<tr>
+								<th scope="row">매각차익</th>
+								<td colspan="3"><span>=</span>0<span>억</span></td>
+							</tr>
+							<tr>
+								<th scope="row">임대소득</th>
+								<td colspan="3">180<span>만</span></td>
+							</tr>
+							<tr>
+								<th scope="row">소득합계</th>
+								<td colspan="3">180<span>만</span></td>
+							</tr>
+							<tr>
+								<th scope="row">공실이자</th>
+								<td colspan="3">190<span>만</span></td>
+							</tr>
+							<tr>
+								<th scope="row">실투자금</th>
+								<td colspan="3">7,480<span>만</span></td>
+							</tr>
+							<tr>
+								<th scope="row">총수익율</th>
+								<td>2.4<span>%</span></td>
+								<th scope="row">년수익율</th>
+								<td>2.4<span>%</span></td>
+							</tr>
+		                </tbody>
+		            	</table>
+		            </div><!-- //설정 결과 -->
+	    		</div><!--//cont05 -->
+	    		<!-- cont06 -->
+	    		<div id="cont06" class="tab-cont">
+	    			<div class="temp temp-case">
+	    				<h3>주변 거래 평균</h3>
+		    			<table class="tbl-th tbl-case">
+			                <caption>토지정보의 인근지역 유사거래 사례 - 연면적 평균,토지 평균,공시 평균에 대한 표 입니다.</caption>
+			                <colgroup>
+				                <col style="width:;">
+				                <col style="width:;">
+				                <col style="width:;">
+			                </colgroup>
+			                <thead>
+								<tr class="row-result">
+									<th scope="col">연면적 평균</th>
+									<th scope="col">토지평균</th>
+									<th scope="col">공시평균</th>
+								</tr>
+			                </thead>
+			                <tbody>
+								<tr class="row-result">
+									<td class="fc-primary">2461.71</td>
+									<td>2949,75</td>
+									<td>3.88</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+    				<div class="temp temp-control">
+						<div class="accordion">
+	    					<div class="row accordion-head align-l bdb-2-black">
+			    				<h3>조건검색</h3>
+				    			<button type="button" title="상세내용 보기" class="btn btn-accordion">
+		    						<img src="img/btn-accordion.png" class="icon icon-accordion" alt="상세내용 보기 아이콘">
+		    					</button>
+	    					</div>
+		    				<div class="accordion-cont">
+		    					<table class="tbl-th tbl-case bdt-none">
+					                <caption>토지정보의 인근지역 유사거래 사례 - 조회조건에 대한 표 입니다.</caption>
+					                <colgroup>
+					                	<col style="width:;">
+					                	<col style="width:;">
+					                	<col style="width:;">
+					                </colgroup>
+									<tbody>
+										<tr>
+											<td colspan="2" class="col-check">
+												<div class="lay-flex">
+													<div class="col">
+														<label>
+															<input type="checkbox" name="space" title="목록선택하기" checked>
+															<span>-</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="space" title="목록선택하기">
+															<span>12m미만</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="space" title="목록선택하기">
+															<span>25m미만</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="space" title="목록선택하기">
+															<span>25m이상</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="space" title="목록선택하기">
+															<span>8m미만</span>
+														</label>
+													</div>
+												</div>
+											</td>
+											<td class="col-select">
+												<div class="select">
+						                            <label for="select1 invisible" class="label">유사면적</label>
+						                            <select id="select1" class="select-list" title="유사면적 옵션선택">
+						                                <option value="유사면적검색" selected>유사면적검색</option>
+						                                <option value="1">1</option>
+						                                <option value="2">2</option>
+						                                <option value="3">3</option>
+						                                <option value="4">4</option>
+						                                <option value="5">5</option>
+						                                <option value="6">6</option>
+						                                <option value="7">7</option>
+						                                <option value="8">8</option>
+						                                <option value="9">9</option>
+						                                <option value="10">10</option>
+						                            </select>
+						                        </div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="2" class="col-check">
+												<div class="lay-flex">
+													<div class="col">
+														<label>
+															<input type="checkbox" name="years2" title="목록선택하기" checked>
+															<span>5년미만</span>
+														</label>
+													</div>
+													<div class="col">
+														<label> 
+															<input type="checkbox" name="years2" title="목록선택하기">
+															<span>5~10년</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="years2" title="목록선택하기">
+															<span>10~20년</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="years2" title="목록선택하기">
+															<span>20~30년</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="years2" title="목록선택하기">
+															<span>30년이상</span>
+														</label>
+													</div>
+												</div>
+											</td>
+											<td class="col-select">
+												<div class="select">
+						                            <label for="select2" class="label">거래유형</label>
+							                        <select id="select2" class="select-list" title="거래유형 옵션선택">
+						                                <option value="0개 선택됨" selected>0개 선택됨</option>
+						                                <option value="1">1</option>
+						                                <option value="2">2</option>
+						                                <option value="3">3</option>
+						                                <option value="4">4</option>
+						                                <option value="5">5</option>
+						                                <option value="6">6</option>
+						                                <option value="7">7</option>
+						                                <option value="8">8</option>
+						                                <option value="9">9</option>
+						                                <option value="10">10</option>
+						                            </select>
+						                        </div>
+											</td>
+										</tr>
+										<tr>
+											<td class="col-select">
+												<div class="select">
+						                            <label for="select2" class="label">용도지역</label>
+							                        <select id="select2" class="select-list" title="용도지역 옵션선택">
+						                                <option value="0개 선택됨" selected>0개 선택됨</option>
+						                                <option value="1">1</option>
+						                                <option value="2">2</option>
+						                                <option value="3">3</option>
+						                                <option value="4">4</option>
+						                                <option value="5">5</option>
+						                                <option value="6">6</option>
+						                                <option value="7">7</option>
+						                                <option value="8">8</option>
+						                                <option value="9">9</option>
+						                                <option value="10">10</option>
+						                            </select>
+						                        </div>
+											</td>
+											<td class="col-select">
+												<div class="select">
+						                            <label for="select2" class="label">건물주용도</label>
+							                        <select id="select2" class="select-list" title="건물주용도 옵션선택">
+						                                <option value="0개 선택됨" selected>0개 선택됨</option>
+						                                <option value="1">1</option>
+						                                <option value="2">2</option>
+						                                <option value="3">3</option>
+						                                <option value="4">4</option>
+						                                <option value="5">5</option>
+						                                <option value="6">6</option>
+						                                <option value="7">7</option>
+						                                <option value="8">8</option>
+						                                <option value="9">9</option>
+						                                <option value="10">10</option>
+						                            </select>
+						                        </div>
+											</td>
+											<td class="col-select">
+												<div class="select">
+						                            <label for="select2" class="label">정렬</label>
+							                        <select id="select2" class="select-list" title="정렬 옵션선택">
+						                                <option value="거리순" selected>거리순</option>
+						                                <option value="1">1</option>
+						                                <option value="2">2</option>
+						                                <option value="3">3</option>
+						                                <option value="4">4</option>
+						                                <option value="5">5</option>
+						                                <option value="6">6</option>
+						                                <option value="7">7</option>
+						                                <option value="8">8</option>
+						                                <option value="9">9</option>
+						                                <option value="10">10</option>
+						                            </select>
+						                        </div>
+											</td>
+										</tr>
+					                </tbody>
+				            	</table>
+				            </div>
+				            <div>
+								<table class="tbl-th tbl-case bdt-none">
+					                <caption>토지정보의 인근지역 유사거래 사례 - 조회조건에 대한 표 입니다.</caption>
+					                <colgroup>
+					                	<col style="width:;">
+					                	<col style="width:;">
+					                	<col style="width:;">
+					                </colgroup>
+									<tbody>
+										<tr>
+											<td colspan="3" class="col-radio">
+												<div class="lay-flex lay-inline">
+													<div class="col">
+														<label>
+															<input type="radio" name="years" class="ck-round gray" checked>
+															<span>전체</span>
+														</label>
+													</div>
+							    					<div class="col">
+														<label>
+															<input type="radio" name="years" class="ck-round gray">
+															<span>최근1년</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="radio" name="years" class="ck-round gray">
+															<span>최근2년</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="radio" name="years" class="ck-round gray">
+															<span>최근3년</span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="3" class="col-check">
+												<div class="lay-flex">
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기" checked>
+															<span>H1</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>H2</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>H3</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>H4</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>H6</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>L1</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>L5</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>L7</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>L8</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>M1</span>
+														</label>
+													</div>
+													<div class="col">
+														<label>
+															<input type="checkbox" name="floor_level" title="목록선택하기">
+															<span>M2</span>
+														</label>
+													</div>
+												</div>
+											</td>
+										</tr>
+					                </tbody>
+				            	</table>
+				            </div>
+			            </div>
+		    		</div>
+	    			<div class="temp temp-table">
+	    				<div class="lay-inline">
+			    			<h3>주변 유사거래</h3>
+		    				<div class="switch btn-control">
+								<label><input type="checkbox" class="btn btn-switch"><span class="invisible">스위치 버튼</span></label>
+								<div class="switch-txt">
+									<span class="fc-primary">평당</span><span class="active">연면적당</span>
+								</div>
+							</div>
+		    			</div>
+		    			<table class="tbl-th">
+			                <caption>토지정보의 인근지역 유사거래 사례 - 거래일자,거래유형,주소,매매금액,평단가,도로폭,연면적,대지면적,사용률,준공(년),거리에 대한 표 입니다.</caption>
+			                <colgroup>
+				                <col style="width:;">
+				                <col style="width:28%;">
+				                <col style="width:;">
+				                <col style="width:;">
+				                <col style="width:;">
+				                <col style="width:10%;">
+			                </colgroup>
+			                <thead>
+			                	<tr>
+									<th scope="col">년 월<br>유 형</th>
+									<th scope="col">주   소<br>매매금액</th>
+									<th scope="col">평단가<br>도로폭</th>
+									<th scope="col">연면적<br>대지면적</th>
+									<th scope="col">사용율<br>준공(년)</th>
+									<th scope="col" class="col-check">
+										<div class="lay-flex">
+											<div class="col">
+												<label>
+													<input type="checkbox" name="floor_level" title="목록선택하기">
+													<span>거리</span>
+												</label>
+											</div>
+										</div>
+									</th>
+								</tr>
+			                </thead>
+			                <tbody>
+			                	<tr>
+									<td>17.10<br>상업용</td>
+									<td>청학동 386-197<br>5.5<em>억</em></td>
+									<td>626<em>만</em><br>1,095<em>만</em></td>
+									<td>87.85<br>50.22</td>
+									<td>88<em>%</em><br>1980</td>
+									<td class="col-check">
+										<div class="lay-flex">
+											<div class="col">
+												<label>
+													<input type="checkbox" name="floor_level" title="목록선택하기" checked>
+													<span>421<em>m</em></span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>20.01<br>단독</td>
+									<td>봉래동5가 143<br>1.3<em>억</em></td>
+									<td>0<em>만</em><br>693<em>만</em></td>
+									<td>15.75<br>18.76</td>
+									<td>42<em>%</em><br>1985</td>
+									<td class="col-check">
+										<div class="lay-flex">
+											<div class="col">
+												<label>
+													<input type="checkbox" name="floor_level" title="목록선택하기">
+													<span>134<em>m</em></span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>19.03<br>단독</td>
+									<td>봉래동5가 83-3<br>1.3<em>억</em></td>
+									<td>0<em>만</em><br>579<em>만</em></td>
+									<td>8.39<br>22.99</td>
+									<td>18<em>%</em><br>1985</td>
+									<td class="col-check">
+										<div class="lay-flex">
+											<div class="col">
+												<label>
+													<input type="checkbox" name="floor_level" title="목록선택하기">
+													<span>51<em>m</em></span>
+												</label>
+											</div>
+										</div>
+									</td>
+								</tr>
+			                </tbody>
+		            	</table>
+			            <div class="row row-btn btn-wrap lay-m">
+							<button type="button" class="btn btn-more primary"><span>유사거래 사례 더보기</span></button>
+						</div>
+		            </div>
+	    		</div><!--//cont06 -->
+			</div><!-- //fullpopup -->
+			<div class="fullscreen popup fullpopup">
+				<div class="lay-inner scroll-y">
+					<div class="popup-head">
+						<button type="button" class="btn btn-x">
+							<svg class="icon icon-x-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M8 15A7 7 0 108 1a7 7 0 000 14zm0 1A8 8 0 108 0a8 8 0 000 16z" clip-rule="evenodd"></path>
+								<path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 010 .708l-7 7a.5.5 0 01-.708-.708l7-7a.5.5 0 01.708 0z" clip-rule="evenodd"></path>
+								<path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 000 .708l7 7a.5.5 0 00.708-.708l-7-7a.5.5 0 00-.708 0z" clip-rule="evenodd"></path>
+							</svg>
+							<span class="invisible">팝업닫기</span>
+						</button>
+					</div>
+					<div class="popup-cont">
+						<div class="temp temp-control ty03">
+							<h3>건폐율 설정</h3> 
+			    			<table class="tbl-td bg-white">
+			                <caption>층별효용비율설정-건폐율 설정에 대한 표 입니다.</caption>
+			                <colgroup>
+				                <col style="width:24%;">
+				                <col style="width:;">
+			                </colgroup>
+			                <tbody>
+								<tr>
+									<th scope="row">건폐율</th>
+									<td class="row row-range">
+										<div class="control control-big ty06">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="60" min="0" max="100" class="input-range">
+												<span class="output">60%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+			                </tbody>
+			            	</table>
+			            </div>
+			            <div class="temp temp-control ty01">
+							<h3>층별효용비율설정</h3>
+							<div class="row row-label">
+								<label>
+									<input type="radio" name="living" class="ck-round" checked>
+									근린생활
+								</label>
+								<label>
+									<input type="radio" name="living" class="ck-round">
+									다세대
+								</label>
+								<label>
+									<input type="radio" name="living" class="ck-round">
+									오피스
+								</label>
+							</div>
+						</div>
+						<div class="temp temp-control ty03">
+			    			<table class="tbl-td bg-white bdt-1-gray">
+			                <caption>층별효용비율설정-4층,3층,2층,1층,지하1층,지하2층 설정에 대한 표 입니다.</caption>
+			                <colgroup>
+				                <col style="width:24%;">
+				                <col style="width:;">
+			                </colgroup>
+			                <tbody>
+								<tr>
+									<th scope="row">4층</th>
+									<td class="row row-range">
+										<div class="control control-big ty07">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="42" min="0" max="100" class="input-range">
+												<span class="output">20%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">3층</th>
+									<td class="row row-range">
+										<div class="control control-big ty07">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="33" min="0" max="100" class="input-range">
+												<span class="output">30%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">2층</th>
+									<td class="row row-range">
+										<div class="control control-big ty07">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="24" min="0" max="100" class="input-range">
+												<span class="output">40%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">1층</th>
+									<td class="row row-range">
+										<div class="control control-big ty07">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="36" min="0" max="100" class="input-range">
+												<span class="output">100%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">지1층</th>
+									<td class="row row-range">
+										<div class="control control-big ty07">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="81" min="0" max="100" class="input-range">
+												<span class="output">30%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th scope="row">지2층</th>
+									<td class="row row-range">
+										<div class="control control-big ty07">
+											<label class="range">
+												<span class="bar-range"><em class="fill"></em></span>
+												<input type="range" value="37" min="0" max="100" class="input-range">
+												<span class="output">20%</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+			                </tbody>
+			            	</table>
+			            </div>
+			            <div class="row row-btn btn-wrap">
+							<button type="button" class="btn btn-default"><span>확인</span></button>
+						</div>
+					</div>
+				</div>
+			</div><!-- //fullpopup -->
+			</div><!-- //contents -->
+		</div><!-- //aside -->
+	</div><!-- //container -->
+</div><!-- //wrap -->
+<!-- popup -->
+<div class="popup default">
+	<div class="dim"></div>
+	<div class="popup-layer">
+		<div class="lay-inner">
+			<div class="popup-head">
+				<h3>용도지역</h3>
+				<label><input type="checkbox" class="allck-button"><span>전체</span></label>
+			</div>
+			<div class="popup-cont scroll-y">
+		        <ul class="tab-multiple">
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>1종전주</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>2종전주</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>1종일주</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>2종일주</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>3종일주</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>준주거</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>중심상업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>일반상업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>근린상업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>유통상업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>전용공업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>일반공업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>준공업</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>보전녹지</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>생산녹지</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>자연녹지</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>개발제한</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>미지정</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>관리지역</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>보전관리</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>생산관리</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>계획관리</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>농림지역</span></label>
+		        	</li>
+		        	<li>
+		        		<label><input type="checkbox" name="business" class="ck-button"><span>자연환경</span></label>
+		        	</li>
+		        </ul>
+			</div>
+			<button type="button" class="btn btn-fullscreen btn-x">확인</button>
+		</div>
+	</div>
+</div><!-- //popup -->
+</body>
+</html>
