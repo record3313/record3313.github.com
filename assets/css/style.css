@@ -89,7 +89,7 @@ h3{text-transform:uppercase;}
 #container2 .grid > div .box a .cover h3 { font-size:14px; line-height:25px; margin:0 auto 10px; width:200px; }
 
 /* tooltip */
-.tooltip{display:inline-block;position:relative;z-index:12;top:-69px;left:96px;}
+.tooltip{display:inline-block;position:relative;z-index:9;top:-69px;left:96px;}
 .tooltip .btn-tooltip{width:14px;height:14px;margin-left:5px;border:.8px solid #fff;position:relative;-webkit-border-radius:7px;-moz-border-radius:7px;border-radius:7px;background:transparent;display:inline-block;cursor:pointer;}
 .tooltip .btn-tooltip:before{content:'';display:block;width:2px;height:4px;position:absolute;top:2px;left:5px;background:#fff;}
 .tooltip .btn-tooltip:after{content:'';display:block;width:2px;height:2px;position:absolute;top:7px;left:5px;background: #fff;}
