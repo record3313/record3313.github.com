@@ -34,8 +34,8 @@ $(function () {
 			$(this).next(".tooltip-pop").toggle();
 
 			if( $(this).next(".tooltip-pop").css("display") == "block" ){
-				$(".wrap").click(function(wrap){
-					if(!$(wrap.target).hasClass("btn-tooltip")){
+				$("body").click(function(body){
+					if(!$(body.target).hasClass("btn-tooltip")){
 						$(".tooltip-pop").hide()
 					}
 				})
