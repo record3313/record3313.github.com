@@ -12,9 +12,9 @@ $(function () {
 	});
 	$(window).on("load",function(){
 
-
 		/* Desktop PC check */
 		var mobileArray = /Mobile|iPhone|od|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/;
+		
 		if(!navigator.userAgent.match(mobileArray)){
 			$('#container2').sliphover({
 				target : '.box',
