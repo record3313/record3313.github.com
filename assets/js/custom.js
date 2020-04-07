@@ -12,11 +12,6 @@ $(function () {
 	});
 	$(window).on("load",function(){
 
-		// mobile scroll position
-		setTimeout(function(){
-			window.scrollTo(0, 25);
-		},100)
-
 		/* Desktop PC check */
 		var mobileArray = /Mobile|iPhone|od|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/;
 		
@@ -25,6 +20,11 @@ $(function () {
 				target : '.box',
 				caption : 'data-caption'
 			});
+		}else{
+			// mobile scroll position
+			setTimeout(function(){
+				window.scrollTo(0, 25);
+			},100)
 		}
 	});
 	/* tooltip */
