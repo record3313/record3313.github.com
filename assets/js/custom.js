@@ -16,15 +16,12 @@ $(function () {
 		/* Desktop PC check */
 		var mobileArray = /Mobile|iPhone|od|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/;
 		if(!navigator.userAgent.match(mobileArray)){
-			$(".wrap").toggleClass("mob");
+			$('#container2').sliphover({
+				target : '.box',
+				caption : 'data-caption'
+			});
 		}
 	});
-
-	$('#container2').sliphover({
-		target : '.box',
-		caption : 'data-caption'
-	});
-
 	/* tooltip */
 	$(".tooltip").each(function(){
 		$(this).children(".btn-tooltip").on("click",function(){
