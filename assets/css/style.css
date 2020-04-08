@@ -170,7 +170,7 @@ h3{text-transform:uppercase;}
 	#header.on+#container1 .con1_text a{border-radius:30px;min-width:350px;}
 	#header.on+#container1 .con1_text a span{vertical-align:3px;}
 	#header.on+#container1 .explore{display:none;}
-
+}
 /* Galaxy S5, Iphone5 */
 @media screen and (max-width:360px){
 	.top_nav ul li a{font-size:25px;}
@@ -178,6 +178,6 @@ h3{text-transform:uppercase;}
 	#header.on+#container1 .con1_text a{min-width:300px;}
 	#container1 .con1_text{display:none;vertical-align:bottom;padding:0 0 100px;}
 	#header.on+#container1 .con1_text p{font-size:14px;}
-	#header.on .top_nav ul li a{font-size:18px;}
-	.tooltip{top:-61px;left:75px;}
+	#header.on .top_nav ul li a{font-size:14px;}
+	.tooltip{top:-60px;left:75px;}
 }
