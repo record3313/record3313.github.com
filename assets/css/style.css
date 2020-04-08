@@ -14,12 +14,14 @@ q:before,q:after { content:""; }
 a { outline:0; text-decoration:none; color:#666; }
 em { font-style:normal; }
 body { font:12px /1.4 roboto, arial, sans-serif; color:#666; overflow-x:hidden; }
+/* touch area */
+button{-webkit-tap-highlight-color:rgba(0,0,0,0);-webkit-tap-highlight-color:transparent;}
 
 /* common */
-.h { position:absolute; top:-99999px; }
-h2 { position:relative; font:300 30px roboto; color:#F05F40; transition:all 0.3s; text-align:center; }
-h1 { font:700 50px roboto; color:#fff; margin-bottom:20px; }
-h1:after {content: '';display: block;width: 50px;height: 2px;margin: 15px auto 25px;background: #f05f40;}
+.h{ position:absolute; top:-99999px; }
+h2{ position:relative; font:300 30px roboto; color:#F05F40; transition:all 0.3s; text-align:center; }
+h1{ font:700 50px roboto; color:#fff; margin-bottom:20px; }
+h1:after{content: '';display: block;width: 50px;height: 2px;margin: 15px auto 25px;background: #f05f40;}
 h3{text-transform:uppercase;}
 .invisible{width:1px;height:1px;margin:-1px;padding:0;position:absolute;border:0;clip:rect(0,0,0,0);white-space:nowrap;overflow:hidden;}
 
