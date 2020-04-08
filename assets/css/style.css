@@ -151,7 +151,7 @@ h3{text-transform:uppercase;}
 	.explore{display:none;top:49px;right:25px;bottom:auto;left:auto;z-index:10;}
 	#container1 .grid{position:static;}
 	#container2 .grid>div{width:100%;height:230px;}
-	.tooltip{top:-71px;left:106px;}
+	.tooltip{top:-72px;left:106px;}
 	.tooltip .tooltip-pop{width:270px;top:-70px;background:#645050;word-break:keep-all;}
 	.tooltip .tooltip-pop:after{background:#645050;}
 	.tooltip .tooltip-pop p{font-size:11px !important;}
