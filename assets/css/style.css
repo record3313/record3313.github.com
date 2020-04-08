@@ -57,7 +57,7 @@ h3{text-transform:uppercase;}
 #header.on .logo h1 { font:300 26px roboto; }
 
 /*container1*/
-#container1 .grid{display:table;height:100%;table-layout:fixed;}
+#container1 .grid{display:table;min-width:auto;width:100%;height:100%;table-layout:fixed;}
 #container1 .con1_text{display:table-cell;vertical-align:middle;}
 
 .con1_text { width:100%; text-align:center; }
@@ -113,18 +113,18 @@ h3{text-transform:uppercase;}
 /******************************
          other device
 ******************************/
-/* pc midium1 size */
-@media screen and (max-width:1200px){
-}
-
-/* pc midium3 size */
-@media screen and (max-width:1024px){
-
-}
-
 /* tablet + smartphone */
 @media screen and (max-width:1024px){
 
+}
+/* pc midium1 size */
+@media screen and (max-width:1170px){
+
+}
+/* pc midium2 size */
+@media screen and (max-width:800px){
+	#container2 .grid{min-width:auto;width:100%;}
+	#container2 .grid > div{width:50%;}
 }
 /* smartphone */
 @media screen and (max-width:480px){
@@ -147,6 +147,7 @@ h3{text-transform:uppercase;}
 	.top_nav ul li{-webkit-align-items:center;align-items:center;}
 	.top_nav ul li a{font-size:30px;padding:9px 18px 8px 0;text-shadow:5px 3px 13px rgba(70, 58, 68, 0.74);}
 	.top_nav ul li+li a:before{margin:3px 14px;content:none;display:inline-block;width:3px;height:3px;background:#fff;}
+	.top_nav ul li:last-child a{padding-right:0;}
 	#container1{position:static;}
 	#container1 .con1_text{display:none;vertical-align:bottom;padding:0 0 130px;}
 	.con1_text p{font-size:20px;}
@@ -169,14 +170,14 @@ h3{text-transform:uppercase;}
 	#header.on .top_nav ul li a{font-size:16px;}
 	#header.on+#container1 h1{font-size:32px;}
 	#header.on+#container1 .con1_text{vertical-align:bottom;display:table-cell;}
-	#header.on+#container1 .con1_text a{border-radius:30px;min-width:350px;}
+	#header.on+#container1 .con1_text a{border-radius:30px;min-width:330px;}
 	#header.on+#container1 .con1_text a span{vertical-align:3px;}
 	#header.on+#container1 .explore{display:none;}
 }
 /* Galaxy S5, Iphone5 */
 @media screen and (max-width:360px){
 	.top_nav ul li a{font-size:25px;}
-	#container2 .grid>div{height:180px;}
+	#container2 .grid>div{height:180px;width:100%;min-width:320px;}
 	#header.on+#container1 .con1_text a{min-width:300px;}
 	#container1 .con1_text{display:none;vertical-align:bottom;padding:0 0 100px;}
 	#header.on+#container1 .con1_text p{font-size:14px;}
