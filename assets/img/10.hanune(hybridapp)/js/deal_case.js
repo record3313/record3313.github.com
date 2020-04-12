@@ -21,12 +21,14 @@ function layerpopupOpen(target){
 	$(window).on("load",function(){
 
 		/* PC browser resize */
-	    $(window).resize(function(){
-	    	$(".pc-only").each(function pcOnly(){
-			});
-	    })
+	    $(window).on('resize', function() {
+			winResize();
+		});
+		function winResize(){
 
-		/* Desktop PC check */
+		}
+
+		/* desktop PC check */
 		var mobileArray = /Mobile|iPhone|od|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/;
 		if(!navigator.userAgent.match(mobileArray)){
 			$(".wrap").addClass("pc-only").next(".popup").addClass("pc-only");
@@ -154,58 +156,50 @@ function layerpopupOpen(target){
 			}
 		});
 
+	    /* tab-scroll */
+		$(".contents").on("scroll", function() {
+
+			var scroll_h = $(this).scrollTop();
+			var padding = 40;
+			var $cont01 = $("#cont01").offset().top;
+			var $cont01_h = $("#cont01").height() + padding;
+			var $cont02 = $("#cont02").offset().top;
+			var $cont02_h = $("#cont02").height() + padding;
+			var $cont03 = $("#cont03").offset().top;
+			var $cont03_h = $("#cont03").height() + padding;
+			var $cont04 = $("#cont04").offset().top;
+			var $cont04_h = $("#cont04").height() + padding;
+			var $cont05 = $("#cont05").offset().top;
+			var $cont05_h = $("#cont05").height() + padding;
+			var $cont06 = $("#cont06").offset().top;
+			var $cont06_h = $("#cont06").height() + padding;
+
+			if( scroll_h >= 0 && scroll_h < $cont02 - $cont01 ){
+				$(".tab-anchor").children("li").eq(0).addClass("active").siblings("li").removeClass("active");
+			}//0 ~ 900
+			if( scroll_h >= $cont02 - $cont01 && scroll_h < $cont03 - $cont01 ){
+				$(".tab-anchor").children("li").eq(1).addClass("active").siblings("li").removeClass("active");
+			}//900 ~ 1515
+			if( scroll_h >= $cont03 - $cont01 && scroll_h < $cont04 - $cont01 ){
+				$(".tab-anchor").children("li").eq(2).addClass("active").siblings("li").removeClass("active");
+			}//1515 ~ 1980
+			if( scroll_h >= $cont04 - $cont01 && scroll_h < $cont05 - $cont01 ){
+				$(".tab-anchor").children("li").eq(3).addClass("active").siblings("li").removeClass("active");
+			}//1980 ~ 2616
+			if( scroll_h >= $cont05 - $cont01 && scroll_h < $cont06 - $cont01 ){
+				$(".tab-anchor").children("li").eq(4).addClass("active").siblings("li").removeClass("active");
+			}//2616 ~ 3560
+			if( scroll_h >= $cont06 - $cont01 ){
+				$(".tab-anchor").children("li").eq(5).addClass("active").siblings("li").removeClass("active");
+			}//3560 odd
+		});
+
 	    /* roadview */
 	    $(".btn-roadview").bind("click",function(){
 	    	if( !$(".tab-anchor").children("li:eq(0)").hasClass("active") ){
 				$(".tab-anchor").children("li:eq(0)").toggleClass("active").siblings().removeClass("active")
 			}
 	    })
-
-		// $(".contents").on("scroll",function(){
-		// 	var scroll = $(this).scrollTop();
-		// 	var $cont01 = $("#cont01").offset().top;
-		// 	var $cont02 = $("#cont02").offset().top;
-		// 	var $cont03 = $("#cont03").offset().top;
-		// 	var $cont04 = $("#cont04").offset().top;
-		// 	var $cont05 = $("#cont05").offset().top;//175
-		// 	var $cont06 = $("#cont06").offset().top;//175
-		// 	var $cont07 = 2802;
-		// 	var www = 208;//176
-
-		// 	// if( scroll>=$cont01+www && scroll <$cont02+www){
-		// 	// 	$(".tab-anchor").children("li").removeClass("active");
-		// 	// 	$(".tab-anchor").children("li").eq(0).addClass("active");
-		// 	// }//0
-		// 	// if( scroll>=$cont02+www && scroll <$cont03+www){
-		// 	// 	$(".tab-anchor").children("li").removeClass("active");
-		// 	// 	$(".tab-anchor").children("li").eq(1).addClass("active");
-		// 	// }//516
-		// 	// if( scroll>=$cont03+www && scroll <$cont04+www){
-		// 	// 	$(".tab-anchor").children("li").removeClass("active");
-		// 	// 	$(".tab-anchor").children("li").eq(2).addClass("active");
-		// 	// }//1130
-		// 	// if( scroll>=$cont04+www && scroll <$cont05+www){
-		// 	// 	$(".tab-anchor").children("li").removeClass("active");
-		// 	// 	$(".tab-anchor").children("li").eq(3).addClass("active");
-		// 	// }//1777
-		// 	// if( scroll>=$cont05+www && scroll <$cont06+www){
-		// 	// 	$(".tab-anchor").children("li").removeClass("active");
-		// 	// 	$(".tab-anchor").children("li").eq(4).addClass("active");
-		// 	// }//2376
-		// 	// if( scroll>=$cont06+www && scroll <$cont07+www){
-		// 	// 	$(".tab-anchor").children("li").removeClass("active");
-		// 	// 	$(".tab-anchor").children("li").eq(4).addClass("active");
-		// 	// }//2802
-
-		// 	console.log( "윈도우"+':'+scroll );
-		// 	console.log( "토지"+':'+$cont01 );
-		// 	console.log( "건물"+':'+$cont02 );
-		// 	console.log( "통계"+':'+$cont03 );
-		// 	console.log( "계산"+':'+$cont04 );
-		// 	console.log( "결과"+':'+$cont05 );
-		// 	console.log( "시세"+':'+$cont06 );
-		// 	console.log( "**********************************스크롤바높이:80***************************************" );
-		// });
 
 	    /* accordion */
 	    $(".accordion").each(function(){
@@ -225,15 +219,15 @@ function layerpopupOpen(target){
 	    })
 
 		/* checkbox */
-		$("input[type=checkbox].allck-button").each(function(){
-			var $target = $(this).closest(".popup-head").next(".popup-cont").find("input[type=checkbox]"); 
+		$(".allcheck").each(function(){
+			var $target = $(this).closest(".check-group").find(".checks input[type=checkbox]"); 
 
 			$(this).on("click",function(){
 
 		        if( $(this).prop("checked") ){
 		            $target.prop("checked",true); 
 		        	$target.on("click",function(){
-						$(this).parents(".popup-cont").siblings(".popup-head").find("input[type=checkbox].allck-button").prop("checked",false)
+						$(this).closest(".check-group").find("input[type=checkbox].allcheck").prop("checked",false)
 		        	});
 		        } else{
 		            $target.prop("checked",false);
@@ -253,6 +247,7 @@ function layerpopupOpen(target){
 		    });
 	    });
 
+	    /* switch Control */
 		$(".switch.btn-control").each(function(){	
 	    	var $btn = $(this).find(".btn-switch");
 	    	var $txt = $btn.closest("label").siblings(".switch-txt").children();
@@ -290,5 +285,10 @@ function layerpopupOpen(target){
 		    	$fill.css("width",$range.val() + "%");
 		  	});
 	    });
+
+	    //first road setting
+	    (function init() {
+			winResize();
+		})();
 	});
 })(jQuery);
