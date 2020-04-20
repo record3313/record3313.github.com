@@ -161,7 +161,7 @@ h3{text-transform:uppercase;}
 	.top_nav ul{margin:0;overflow-x:visible;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-lines:multiple;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:vertical;-ms-flex-direction:column;flex-direction:column;}
 	.top_nav ul li{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;}
 	.top_nav ul li{-webkit-align-items:center;align-items:center;}
-	.top_nav ul li a{font-size:30px;padding:9px 18px 8px 0;letter-spacing: 4px;text-shadow:5px 3px 13px rgba(70, 58, 68, 0.74);}
+	.top_nav ul li a{font-size:30px;padding:9px 0 8px 0;letter-spacing: 4px;text-shadow:5px 3px 13px rgba(70, 58, 68, 0.74);}
 	.top_nav ul li+li a:before{margin:3px 14px;content:none;display:inline-block;width:3px;height:3px;background:#fff;}
 	.top_nav ul li:last-child a{padding-right:0;}
 	#container1{position:static;background-position:-30px center;}
@@ -201,5 +201,5 @@ h3{text-transform:uppercase;}
 	.tooltip .tooltip-pop p{font-size:11px !important;}
 	#header.on+#container1 .con1_text p{font-size:14px;}
 	#header.on .top_nav ul li a{font-size:14px;}
-	.tooltip{top:-58px;left:75px;padding:0;}
+	.tooltip{top:-64px;left:75px;padding:0;}
 }
