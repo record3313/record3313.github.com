@@ -709,7 +709,7 @@ a.btn-roadview .icon-roadview{margin:6px auto;}
   -webkit-align-items:center;align-items:center;
   height:50px;padding:0 24px;border-bottom: .8px solid #ccc;
 }
-.popup.default .popup-head{padding:0 24px;}/* 좌우여백 */
+.popup.pc-only .popup-head{padding:0 24px;}/* 좌우여백 */
 .popup .popup-cont{max-height:226px;margin:20px 0;padding:0 24px;}/* 좌우여백 */
 .popup .popup-head h3{margin:0;font-size:13px;color:#111;font-weight:bold;text-indent:0;}
 .popup .popup-head h3:before{content:none;}
@@ -721,23 +721,20 @@ a.btn-roadview .icon-roadview{margin:6px auto;}
   display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;
   -webkit-justify-content:center;justify-content:center;
   -webkit-align-items:center;align-items:center;
-  margin:10px;position:absolute;top:0;right:0;font-size:26px;
-}
-.popup.fullscreen .btn-x{
-  color:#787878;background:#fff;
+  margin:10px;position:absolute;top:0;right:0;font-size:26px;color:#787878;background:#fff;z-index:1;
   -webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;
 }
 
-.popup.default input[type="checkbox"].allcheck+span{
+.popup:not(.aside) input[type="checkbox"].allcheck+span{
   display:inline-block;padding:1px 13px;font-size:13px;text-indent:13px;color:#888;background:#f1f1f1;border:.8px solid #d0d1d7;
   -webkit-border-radius:13px;-moz-border-radius:13px;border-radius:13px;
 }
-.popup.default input[type="checkbox"]:checked.allcheck+span{color:#f37321;background:#fcf7f3;border-color:#f37321;}
-.popup.default input[type="checkbox"].allcheck:before{
+.popup:not(.aside) input[type="checkbox"]:checked.allcheck+span{color:#f37321;background:#fcf7f3;border-color:#f37321;}
+.popup:not(.aside) input[type="checkbox"].allcheck:before{
   margin-left:26px;border:none;
   background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='black' stroke='lightgray' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z'/></svg>") 0 0 / 15px 15px no-repeat transparent;
 }
-.popup.default input[type="checkbox"]:checked.allcheck:not(:disabled):before{
+.popup:not(.aside) input[type="checkbox"]:checked.allcheck:not(:disabled):before{
   background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path fill='black' stroke='orange' stroke-linecap='round' stroke-linejoin='round' stroke-width='1' d='M13.854 3.646a.5.5 0 010 .708l-7 7a.5.5 0 01-.708 0l-3.5-3.5a.5.5 0 11.708-.708L6.5 10.293l6.646-6.647a.5.5 0 01.708 0z'/></svg>") 0 0 / 15px 15px no-repeat transparent;
 }
 
@@ -784,8 +781,8 @@ a.btn-roadview .icon-roadview{margin:6px auto;}
 }
 .wrap.pc-only .popup.fullscreen .popup-cont{padding-top:34px;}
 .wrap.pc-only .tab-button{margin-right:0;}
-.popup.default.pc-only{position:static;}
-.popup.default.pc-only .dim{display:none;}
+.popup.pc-only{position:static;}
+.popup.pc-only .dim{display:none;}
 .popup.pc-only .popup-layer{
   min-width:550px;width:calc(100% - 380px);
 }

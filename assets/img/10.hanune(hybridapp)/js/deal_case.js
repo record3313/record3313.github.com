@@ -13,6 +13,7 @@
 ******************************/
 /* popup open */
 function layerpopupOpen(target){
+	$(".popup"+"."+target).siblings(".popup").css({"display":"none","opacity":"0"}).removeClass('active');
 	$(".popup"+"."+target).stop().css({"display":"flex","opacity":"0"}).animate({"opacity":"1"},350).addClass('active');
 }
 
@@ -31,7 +32,7 @@ function layerpopupOpen(target){
 		/* desktop PC check */
 		var mobileArray = /Mobile|iPhone|od|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/;
 		if(!navigator.userAgent.match(mobileArray)){
-			$(".wrap").addClass("pc-only").next(".popup").addClass("pc-only");
+			$(".wrap").addClass("pc-only").siblings(".popup").not(".aside").addClass("pc-only");
 		}
 
 		/* fitText */
@@ -63,7 +64,7 @@ function layerpopupOpen(target){
 	    $(".pc-only").each(function pcOnly(){
 			
 			var aside_wid = $(".wrap").find(".popup.aside").width();
-			var default_popup = $(".popup.default").find(".popup-layer");
+			var default_popup = $(".popup.pc-only").find(".popup-layer");
 
 			$(this).find(".map-cont .btn-popup").on("click",function(){
 
@@ -79,7 +80,7 @@ function layerpopupOpen(target){
 					}
 			    })
 			})
-			$(this).find(".map .tab-button .btn-popup").on("click",function(){
+			$(this).find(".map .tab-button .btn-popup, .map .map-menu .btn-popup").on("click",function(){
 
 				if( $(".popup.aside").hasClass("active") ){
 					default_popup.css("width","100%").css("width","-=" + aside_wid + "px")
@@ -93,10 +94,25 @@ function layerpopupOpen(target){
 				$(".popup.aside").removeClass("active");
 				default_popup.css("width","100%")
 			});
-			$(this).find(".popup.default .btn-x").on("click",function(){
+			$(this).find(".popup.pc-only .btn-x").on("click",function(){
 				$(".popup.aside").removeClass("active");
 				default_popup.css("width","100%")
 			});
+		});
+
+		/* btn-filter */
+		$(".btn-filter").bind("click",function(){
+			if( !$(this).hasClass("active") ){
+				$(this).toggleClass("active").closest(".map-menu").siblings(".tab-button").children("li").removeClass("active");
+			}
+		});
+
+		/* tab-button */
+		$(".tab-button li").bind("click",function(){
+			if( !$(this).hasClass("active") ){
+				$(this).toggleClass("active").siblings().removeClass("active")
+				$(this).closest(".tab-button").siblings(".map-menu").children(".btn-filter").removeClass("active");
+			}
 		});
 
 	  	/* popup close */
@@ -109,6 +125,9 @@ function layerpopupOpen(target){
 			});
 		});
 		$(".popup .btn-x").on("click",function(){
+			if( $(this).closest(".popup").hasClass("pc-only") ){
+				$(this).closest(".popup").siblings(".popup").fadeOut(350).removeClass("active");
+			};
 			$(this).closest(".popup").fadeOut(350);	
 			$(this).closest(".popup").removeClass("active");
 		});
@@ -132,21 +151,6 @@ function layerpopupOpen(target){
 		/* toggle */
 		$(".btn-division").bind("click",function(){
 			$(this).toggleClass("active");
-		})
-
-		/* btn-filter */
-		$(".btn-filter").bind("click",function(){
-			if( !$(this).hasClass("active") ){
-				$(this).toggleClass("active").closest(".map-menu").siblings(".tab-button").children("li").removeClass("active")
-			}
-		});
-
-		/* tab-button */
-		$(".tab-button li").bind("click",function(){
-			if( !$(this).hasClass("active") ){
-				$(this).toggleClass("active").siblings().removeClass("active")
-				$(this).closest(".tab-button").siblings(".map-menu").children(".btn-filter").removeClass("active");
-			}
 		});
 
 		/* tab-anchor */
@@ -199,7 +203,7 @@ function layerpopupOpen(target){
 	    	if( !$(".tab-anchor").children("li:eq(0)").hasClass("active") ){
 				$(".tab-anchor").children("li:eq(0)").toggleClass("active").siblings().removeClass("active")
 			}
-	    })
+	    });
 
 	    /* accordion */
 	    $(".accordion").each(function(){
@@ -216,7 +220,7 @@ function layerpopupOpen(target){
 			    	icon.css("transform","")
 		    	}
 		    })
-	    })
+	    });
 
 		/* checkbox */
 		$(".allcheck").each(function(){
@@ -237,7 +241,7 @@ function layerpopupOpen(target){
 				var $CheckSize = $target.length;
 				var $selectCheckSize = $target.is(":checked").length;
 		    })
-		})
+		});
 
 		/* select */
 	    $("select").each(function(){
@@ -264,7 +268,8 @@ function layerpopupOpen(target){
 		            $data.hide();
 		    	}
 		    })
-	    })
+	    });
+
 	    /* control range */
 	    $(".range").each(function(range){
 	    	
